@@ -20,4 +20,19 @@ class DetalleInventario extends Model
         'fecha_ingreso',
         'observaciones',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class);
+    }
+
+    public function estante()
+    {
+        return $this->belongsTo(Estante::class);
+    }
 }

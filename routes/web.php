@@ -1,7 +1,26 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\view\vistaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+//ruta inicio sin middleware
+Route::get('/',[vistaController::class,'__invoke'])->name('login');
+Route::get('/Register_view',[vistaController::class,'vistaregisterUser'])->name('registrarUsuario');
+
+//rutas sin middleware
+Route::post('/Register_user',[AuthController::class,'create'])->name('Register_user');//regitro de usuario
+Route::post('/Login',[AuthController::class,'authenticate'])->name('login_user');//inicio sesion usuario
+
+
+Route::middleware('auth')->group(function(){
+    Route::get('/dashboard',[vistaController::class,'vistaDashborad'])->name('dashboard');
+    Route::get('/stock_view',[vistaController::class,'inventario_stock'])->name('stock_view');
+    Route::get('/part_with_material',[vistaController::class,'surtir_Material'])->name('part_with_material');
+    Route::get('/gestion_embarque',[vistaController::class,'vista_Gestion'])->name('gestion_embarque');
 });
+
+Route::middleware('auth')->group(function(){
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario
+});
+
