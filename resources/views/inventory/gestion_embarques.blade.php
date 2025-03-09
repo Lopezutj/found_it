@@ -54,7 +54,7 @@
                         </div>
 
                         <!-- Botón  Material -->
-                        <button onclick="window.location.href=''" class="h-10 px-6 bg-[#2563eb] text-white rounded-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
+                        <button onclick="window.location.href='{{route('register_form')}}'" class="h-10 px-6 bg-[#2563eb] text-white rounded-lg hover:bg-[#2563eb]/90 transition-colors duration-150">
                             Nuevo material
                         </button>
                     </div>

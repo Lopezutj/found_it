@@ -91,7 +91,7 @@
                                             </svg>
                                         </button>
                                     </form>
-                                    <form action="{{ route('editarMaterial', $material->id_material) }} " method="POST">
+                                    <form action="{{ route('Register_ubicacion', $material->id) }} " method="POST">
                                         @csrf
                                         {{-- agregar ubicacion --}}
                                         <button type="submit" class="text-foundit-blue hover:text-foundit-blue/80 transition-colors duration-150">

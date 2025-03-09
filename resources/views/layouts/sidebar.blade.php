@@ -37,7 +37,7 @@
                             </svg>
                             Surtido
                         </a>
-                        <a href="{{route('stock_view')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
+                        <a href="{{route('Inventorystock')}}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white hover:bg-white hover:text-foundit-blue transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
@@ -103,7 +103,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
                 Trabajadores
-            </a>    
+            </a>        
         </div>
     </nav>
 

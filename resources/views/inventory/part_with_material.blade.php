@@ -5,7 +5,7 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-foundit-blue">Gestión de Surtido</h1>
-            <form action="{{ route('surtsalida') }}" method="GET" id="surtirForm">
+            <form action="{{ route('pull_out_material') }}" method="GET" id="surtirForm">
                 <button type="submit" 
                         id="surtirButton"
                         disabled

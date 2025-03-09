@@ -10,7 +10,7 @@
 
     <!-- Formulario de Nuevo Embarque -->
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <form action="/api/materialCreate?" method="post" class="p-8">
+        <form action="{{route('RegisterMaterial')}}" method="post" class="p-8">
             @csrf
             <div class="space-y-6">
                 <!-- Código del Material -->
@@ -66,7 +66,7 @@
                     </label>
                     <input 
                         type="number" 
-                        name="cantidad" {{-- atributo de DB --}}
+                        name="unidad_medida" {{-- atributo de DB --}}
                         placeholder="Ingrese la cantidad"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
                         min="1"

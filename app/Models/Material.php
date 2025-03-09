@@ -19,7 +19,7 @@ class Material extends Model
         'descripcion',
         'codigo',
         'unidad',
-        'precio'
+        'categoria',
     ];
 
     public function detallesInventario()
