@@ -18,4 +18,14 @@ class Estante extends Model
         'fila',
         'almacen',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function detallesInventario()
+    {
+        return $this->hasMany(DetalleInventario::class);
+    }
 }

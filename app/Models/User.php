@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        ''
+        'rol',
+        'activo',
     ];
 
     /**
@@ -45,5 +46,27 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //relaciones
+    // Relación: un usuario puede tener muchos estantes
+    public function estante(){
+        return $this->hasMany(Estante::class);
+    }
+    // Relación: un usuario puede tener muchos registros en el inventario
+    public function detalleInventario(){
+        return $this->hasMany(DetalleInventario::class);
+    }
+
+    // Verifica si el usuario es administrador
+    public function isAdmin()
+    {
+        return $this->role === 'administrador';
+    }
+
+    // Verifica si el usuario es operador
+    public function isOperador()
+    {
+        return $this->role === 'operador';
     }
 }

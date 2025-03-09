@@ -21,4 +21,10 @@ class Material extends Model
         'unidad',
         'precio'
     ];
+
+    public function detallesInventario()
+    {
+        return $this->hasMany(DetalleInventario::class);
+    }
+
 }
