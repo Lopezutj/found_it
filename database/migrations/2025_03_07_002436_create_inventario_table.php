@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('descripcion')->nullable();
             $table->string('codigo')->unique();
             $table->string('unidad_medida');
-            $table->decimal('precio', 10, 2);
+            $table->string('categoria');
             $table->timestamps();
         });
 

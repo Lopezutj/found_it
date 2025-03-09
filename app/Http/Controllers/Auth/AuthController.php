@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    //
+    //Autentificaciones
+
     public function index(){
         
     }
-
+    
+    //Funcion autentificacion
     public function authenticate(Request $request){
         //validar credenciales
         $credenciales =$request->validate([
@@ -34,7 +36,8 @@ class AuthController extends Controller
         ->onlyInput('email');
     }
 
-        public function create(Request $request){
+    //Funcion crear Usuario
+    public function create(Request $request){
 
             //validar datos del formulario
             $request->validate([
@@ -56,15 +59,16 @@ class AuthController extends Controller
 
             return redirect()->route('login')->with('mensaje','Usuario Creado Con Exito');
 
-        }
+    }
 
+    //cerrar sesion
     public function logout(Request $request){
         
         Auth::logout(); //Cierra la sesion del usuario
 
         $request->session()->invalidate(); //invalida la sesion
         $request->session()->regenerateToken(); //regenera el token CSRF
-        return redirect('/')-with('mensaje','Sesion Cerrada Correctamente');
+        return redirect('/')->with('mensaje','Sesion Cerrada Correctamente');
 
     }
 }

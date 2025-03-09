@@ -29,8 +29,12 @@ class vistaController extends Controller
     }
 
     public function surtir_Material(){
-        return view('inventory.part-with_material');
+        return view('inventory.part_with_material');
 
+    }
+
+    public function salida_material(){
+        return view('inventory.pull_out_material');
     }
 
     public function registrar_material(){
@@ -43,5 +47,9 @@ class vistaController extends Controller
 
     public function inventario_stock(){
         return view('inventory.stock_view');
+    }
+
+    public function registrar_ubicacion(){
+        return view('inventory.register_location');
     }
 }

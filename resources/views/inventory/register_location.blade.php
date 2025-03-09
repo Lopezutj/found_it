@@ -10,7 +10,7 @@
 
     <!-- Formulario -->
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <form action="{{route('registroUbicacion', ['id'=>$material->id_material])}}" method="POST" class="p-8">
+        <form action="{{-- {{route('registroUbicacion', ['id'=>$material->id_material])}} --}}" method="POST" class="p-8">
             @csrf
 
             <div class="space-y-6">
