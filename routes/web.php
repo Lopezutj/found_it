@@ -11,6 +11,16 @@ Route::get('/Register_view',[vistaController::class,'vistaregisterUser'])->name(
 //rutas sin middleware
 Route::post('/Register_user',[AuthController::class,'create'])->name('Register_user');//regitro de usuario
 Route::post('/Login',[AuthController::class,'authenticate'])->name('login_user');//inicio sesion usuario
-Route::get('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario
 
-Route::get('/dashboard',[vistaController::class,'vistaDashborad'])->middleware('auth')->name('dashboard');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/dashboard',[vistaController::class,'vistaDashborad'])->name('dashboard');
+    Route::get('/stock_view',[vistaController::class,'inventario_stock'])->name('stock_view');
+    Route::get('/part_with_material',[vistaController::class,'surtir_Material'])->name('part_with_material');
+    Route::get('/gestion_embarque',[vistaController::class,'vista_Gestion'])->name('gestion_embarque');
+});
+
+Route::middleware('auth')->group(function(){
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario
+});
+
