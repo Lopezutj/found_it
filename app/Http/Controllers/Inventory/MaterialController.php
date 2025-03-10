@@ -63,7 +63,7 @@ class MaterialController extends Controller
         $material->categoria = $request->categoria;
         $material->unidad_medida = $request->unidad_medida;
         $material->cantidad = $request->cantidad;
-        $material->save();
+        $material->save(); //guarda ala base de datos
 
         return redirect()->route('')->with('mensaje','');
     }

@@ -18,7 +18,7 @@ class Material extends Model
         'nombre',
         'descripcion',
         'codigo',
-        'unidad',
+        'unidad_medida',
         'categoria',
     ];
 
