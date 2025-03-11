@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetalleInventario;
 use App\Models\Estante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,8 @@ class EstanteController extends Controller
         $estante->columna=$request->columna;
         $estante->fila=$request->fila;
         $estante->save();
+
+
         return redirect()->route('')->with('mensaje','');
     }
 
