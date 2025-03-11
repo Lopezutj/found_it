@@ -79,7 +79,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$material->codigo}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->nombre}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->categoria}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->cantidad}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->unidad_medida}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
 

@@ -52,9 +52,9 @@
                         required
                     >
                         <option value="" disabled selected>Seleccione una categoría</option>
-                        <option value="ferreteria">Ferretería</option>
-                        <option value="electronica">Electrónica</option>
-                        <option value="herramientas">Herramientas</option>
+                        <option value="Ferretería">Ferretería</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Herramientas">Herramientas</option>
                         
                     </select>
                 </div>
