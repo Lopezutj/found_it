@@ -79,7 +79,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($materiales as  $material)
+                            @foreach ($materialsinUbicacion as  $material)
                             
                             <!-- Ejemplo de fila sin ubicación -->
                             <tr>
@@ -114,7 +114,7 @@
                         </tbody>
                     </table>
 
-                    @if ($materiales->isEmpty())
+                    @if ($materialsinUbicacion->isEmpty())
                     <p class="p-4 text-gray-500">No hay materiales sin ubicación.</p>
                     @endif
 
@@ -141,13 +141,15 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <!-- Ejemplo de fila con ubicación -->
+                            @foreach ($detalles as $detalle)
+                                
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT001</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tornillos M4</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ferretería</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1000</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">JW1</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">P1-A-01</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$detalle->material->codigo}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$detalle->material->nombre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$detalle->material->categoria}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$detalle->material->unidad_medida}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$detalle->estante->almacen}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$detalle->estante->pasillo}}-{{$detalle->estante->columna}}-{{$detalle->estante->fila}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                     <button onclick="openHistoryModal('MAT001')" class="text-[#2045c2] hover:text-[#ff3333]">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,8 +163,12 @@
                                     </button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    @if ($detalles->isEmpty())
+                    <p class="p-4 text-gray-500">No hay Inventario.</p>
+                    @endif
                 </div>
             </div>
         </div>

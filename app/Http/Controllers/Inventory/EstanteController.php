@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class EstanteController extends Controller
 {
-    //
+    
 
     //mostrar todos los estantes
     public function index(){
@@ -32,7 +32,7 @@ class EstanteController extends Controller
             $request->validate([
                 'material_id' => 'required|exists:materiales,id', //obtenemos el del id material
                 'unidad_medida' => 'required|exists:materiales,unidad_medida',
-                'pasillo'=>'required|unique:estante,codigo',
+                'pasillo'=>'required',
                 'columna'=>'required',
                 'fila'=>'required',
                 'almacen'=>'required',
@@ -59,7 +59,7 @@ class EstanteController extends Controller
             ]);
             
         });
-        return redirect()->route('')->with('mensaje','');
+        return redirect()->route('Inventorystock')->with('mensaje','');
     }
 
     //mostrar el formulario para editar estantes

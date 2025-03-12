@@ -76,9 +76,9 @@
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <input type="checkbox" 
-                                       id="selectAll"
-                                       class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
-                                       onchange="toggleAllCheckboxes(this)">
+                                    id="selectAll"
+                                    class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
+                                    onchange="toggleAllCheckboxes(this)">
                             </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -90,33 +90,36 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach ($detalleInventario as $inventario )
+                        
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="checkbox" 
-                                       name="selectedItems[]" 
-                                       value="MAT001"
-                                       class="material-checkbox rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
-                                       onchange="updateSurtirButton()">
+                                name="detalleInventario[]" 
+                                value="{{$inventario->id}}"
+                                class="material-checkbox rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
+                                onchange="updateSurtirButton()">
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT001</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tornillos M4</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ferretería</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1000</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">JW1</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">P1-A-01</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->almacen}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <button 
-                                    type="button" 
-                                    class="px-3 py-1 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center gap-1"
+                                type="button" 
+                                class="px-3 py-1 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center gap-1"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
-                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                    Localizar
-                                </button>
-                            </td>
-                        </tr>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Localizar
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
