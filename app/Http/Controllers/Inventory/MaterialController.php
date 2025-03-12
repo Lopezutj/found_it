@@ -3,22 +3,25 @@
 namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetalleInventario;
 use App\Models\Material;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
 {
-    //
+    
 
-    //mostrar todos los materiales
+    //mostrar todos los materiales con y son ubicacion
     public function index(){
-        $materiales=Material::all();
-
-        //dd($materiales);
-        return view('Inventory.stock_view',compact('materiales'));
+        
+        $materialsinUbicacion=Material::whereDoesntHave('detalles')->get();//obtener detalles donde el estante_id sea NULL (sin ubicación)
+        //dd($materialsinUbicacion); test
+        $detalles=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
+        
+        return view('Inventory.stock_view',compact('materialsinUbicacion','detalles'));
     }
 
-    //registrar Material
+    //registrar Material ala tabla materiales
     public function store(Request $request){
         //validacion de datos del formulario
         $request->validate([

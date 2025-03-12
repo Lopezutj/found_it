@@ -19,8 +19,8 @@ return new class extends Migration
                   ->constrained('users')
                   ->onDelete('cascade');
             $table->string('pasillo');
-            $table->integer('columna');
-            $table->integer('fila');
+            $table->string('columna');
+            $table->string('fila');
             $table->string('almacen');
             $table->timestamps();
         });

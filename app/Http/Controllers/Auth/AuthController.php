@@ -13,7 +13,8 @@ class AuthController extends Controller
     //Autentificaciones
 
     public function index(){
-        
+        $usuarioLog=Auth::user();
+        return view('layouts.sidebar',compact('usuarioLog'));
     }
     
     //Funcion autentificacion

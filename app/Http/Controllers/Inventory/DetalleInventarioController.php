@@ -14,21 +14,25 @@ use Illuminate\Support\Facades\Redis;
 class DetalleInventarioController extends Controller
 {
     //
-    // Mostrar todos los registros de inventario
-    public function index()
+    // Mostrar todos los registros de inventario en Gestion de envarques
+    public function indexDetalle()
     {
-        $detalle=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
-        return view('',compact('detalle'));
+        $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
+        return view('inventory.gestion_embarques',compact('detalleInventario'));
+    }
 
+    public function indexDetalleSurtido()
+    {
+        $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
+        return view('inventory.part_with_material',compact('detalleInventario'));
     }
 
     // Mostrar el formulario para registrar un nuevo detalle de inventario
     public function create()
     {
-        $materiales= Material::all();
-        $estantes=Estante::all();
+        $detalles = DetalleInventario::with(['materiales','estantes','users'])->get();
         
-        return view('',compact('materiales','estante'));
+        return view('',compact('detalles'));
         
     }
 

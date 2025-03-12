@@ -9,7 +9,7 @@ class Estante extends Model
 {
     //
     use HasFactory;
-    protected $table = 'estante';
+    protected $table = 'estantes';
     protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',

@@ -79,12 +79,14 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <!-- Ejemplo de fila -->
+                        @foreach ( $detalleInventario as $inventario )
+                        
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT001</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tornillos M4</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ferretería</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1000</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">A-01-02</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                 <button onclick="openHistoryModal('MAT001')" class="text-[#2045c2] hover:text-[#ff3333] transition-colors duration-150">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: currentColor;">
@@ -98,6 +100,7 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -10,8 +10,10 @@
 
     <!-- Formulario -->
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
-        <form action="{{route('Register_Detalle',['id'=>$material->id])}}" method="POST" class="p-8">
-            @csrf
+        <form action="{{route('Register_Detalle')}}" method="POST" class="p-8">
+            @csrf   
+
+            <input type="hidden" name="material_id" value="{{$material->id}}"> {{-- Campo oculto--}}
 
             <div class="space-y-6">
                 <!-- Material No editable -->
@@ -61,8 +63,8 @@
                         </label>
                         <input 
                             type="text" 
-                            name="cantidad"
-                            value="{{$material->cantidad}}"
+                            name="unidad_medida"
+                            value="{{$material->unidad_medida}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
