@@ -4,7 +4,7 @@
 <div class="p-6">
     <!-- Header -->
     <div class="mb-6">
-        <h1 class="text-2xl font-semibold text-foundit-blue">Asignar Ubicación</h1>
+        <h1 class="text-2xl font-semibold text-[#2045c2]">Asignar Ubicación</h1>
         <p class="text-gray-600 mt-1">Seleccione la ubicación para el material</p>
     </div>
 
@@ -71,14 +71,48 @@
 
                 <!-- Selector de Ubicación -->
                 <div class="pt-4">
-                    <h3 class="text-lg font-medium text-gray-900 mb-6">Seleccionar Nueva Ubicación</h3>
+                    <h3 class="text-lg font-medium text-[#2045c2] mb-6">Seleccionar Nueva Ubicación</h3>
+                    <div class="grid grid-cols-2 gap-6 mb-6">
+                        <!-- Selector de Almacén -->
+                        <div>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Almacén</label>
+                            <select 
+                                name="almacen"
+                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                                required
+                            >
+                                <option value="">Seleccione almacén</option>
+                                <option value="JW1">JW1</option>
+                                <option value="JW2">JW2</option>
+                                <option value="JW3">JW3</option>
+                                <option value="JW4">JW4</option>
+                            </select>
+                        </div>
+
+                        <!-- Selector de Pasillo -->
+                        <div>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Pasillo</label>
+                            <select 
+                                name="pasillo"
+                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                                required
+                            >
+                                <option value="">Seleccione pasillo</option>
+                                <option value="P1">Pasillo 1</option>
+                                <option value="P2">Pasillo 2</option>
+                                <option value="P3">Pasillo 3</option>
+                                <option value="P4">Pasillo 4</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-2 gap-6">
                         <!-- Selector de Columna -->
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Columna</label>
                             <select 
                                 name="columna"
-                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
+                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
                                 <option value="">Seleccione columna</option>
@@ -86,7 +120,6 @@
                                 <option value="B">B</option>
                                 <option value="C">C</option>
                                 <option value="D">D</option>
-                                
                             </select>
                         </div>
 
@@ -95,7 +128,7 @@
                             <label class="block text-base font-medium text-gray-700 mb-2">Fila</label>
                             <select 
                                 name="fila"
-                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-foundit-blue focus:ring-foundit-blue"
+                                class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
                                 <option value="">Seleccione fila</option>
@@ -114,13 +147,13 @@
                 <button 
                     type="button"
                     onclick="history.back()" 
-                    class="px-6 py-3 text-lg font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+                    class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5]"
                 >
                     Cancelar
                 </button>
                 <button 
                     type="submit"
-                    class="px-6 py-3 text-lg font-medium text-white bg-foundit-blue rounded-lg hover:bg-foundit-blue/90"
+                    class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
                 >
                     Guardar Ubicación
                 </button>
@@ -128,18 +161,4 @@
         </form>
     </div>
 </div>
-
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            console.log('Guardando ubicación...');
-        });
-    });
-</script>
-@endpush
 @endsection
