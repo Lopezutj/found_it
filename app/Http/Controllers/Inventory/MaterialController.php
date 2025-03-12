@@ -28,13 +28,12 @@ class MaterialController extends Controller
             'unidad_medida'=>'required|min:0',
         ]);
 
-        
-        $material =new Material();//nuevo objeto del material
-        $material->codigo=$request->codigo;
-        $material->nombre=$request->nombre;
-        $material->categoria=$request->categoria;
-        $material->unidad_medida=$request->unidad_medida;
-        $material->save();//gurdar en la base de datos
+        $material=Material::create([
+            'codigo' => $request->codigo,
+            'nombre' => $request->nombre,
+            'categoria' => $request->categoria,
+            'unidad_medida' => $request->unidad_medida,
+        ]);
 
         return redirect()->route('register_form')->with('mensaje','Material registrado correctamente');
     }
