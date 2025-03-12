@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Inventory\EstanteController;
 use App\Http\Controllers\Inventory\MaterialController;
 use App\Http\Controllers\view\vistaController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/pull_out_material',[vistaController::class,'salida_material'])->name('pull_out_material');//vista
     Route::get('/gestion_embarque',[vistaController::class,'vista_Gestion'])->name('gestion_embarque');//vista
     Route::get('/register_form',[vistaController::class,'registrar_material'])->name('register_form');//vista
+    Route::post('/Register_ubicacion/{id}',[MaterialController::class,'edit'])->name('Register_ubicacion');
     
 });
 
@@ -29,7 +31,7 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('/Inventorystock',[MaterialController::class,'index'])->name('Inventorystock');
     Route::post('/RegisterMaterial',[MaterialController::class,'store'])->name('RegisterMaterial');
-    Route::post('/Register_ubicacion/{id}',[MaterialController::class,'edit'])->name('Register_ubicacion');
+    Route::post('/Register_Detalle',[EstanteController::class,'storeUbicacionYDetalle'])->name('Register_Detalle');
 });
 
 Route::middleware('auth')->group(function(){
