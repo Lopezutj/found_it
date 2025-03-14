@@ -8,6 +8,7 @@ use App\Models\Estante;
 use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Redis;
 
@@ -86,13 +87,29 @@ class DetalleInventarioController extends Controller
         return redirect()->route('')->with('mensaje','');
     }
 
-    // Eliminar un detalle de inventario
-    public function destroy($id)
-    {
-        $detalle = DetalleInventario::findOrFail($id);
-        $detalle->delete();
+    public function ProcesarSeleccion(Request $request){
 
-        return redirect()->route('')->with('mensaje','');
-    
+        $idsSelecionados =$request->input('detalleInventario',[]);//recibe ids en un array 
+
+        if(empty($idsSelecionados)){
+            return redirect()->back()->with('error','No selecionaste ningun material');
+        }
+
+        //Procesar lo materiales seleccionados
+        DB::transaction(function()use ($idsSelecionados){
+            //elimnar los registros de detalle_inventario
+            DetalleInventario::where('id',$idsSelecionados->delete());
+
+            //Eliminar registros de materiales
+            Material::where('id',$idsSelecionados->delete());
+            //Eliminar registro de Estante
+            Estante::where('id',$idsSelecionados->delete());
+        });
+
+        return redirect()->back()->with('error','Eliminado con exito');
+    }
+
+    public function mostrarArrayids(){
+        
     }
 }
