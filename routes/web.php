@@ -39,9 +39,6 @@ Route::middleware('auth')->group(function(){
     
 });
 
-/* Route::middleware('auth')->group(function(){
-    Route::get('/inventario_complet',[DetalleInventarioController::class,'indexDetalle'])->name('inventario_complet');
-}); */
 
 Route::middleware('auth')->group(function(){
     Route::post('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario

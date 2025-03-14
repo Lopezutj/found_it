@@ -95,8 +95,8 @@
                 </div>
             </div>
             <div class="ml-3">
-                <div class="text-sm font-medium text-white">Usuario Demo</div>
-                <div class="text-xs text-white/70">usuario@foundit.com</div>
+                <div class="text-sm font-medium text-white">{{auth()->user()->name}}</div>
+                <div class="text-xs text-white/70">{{auth()->user()->email}}</div>
             </div>
             <form action="{{route('logout_user')}}" method="POST" class="ml-auto">
                 @csrf
