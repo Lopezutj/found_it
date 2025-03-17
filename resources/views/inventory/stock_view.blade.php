@@ -4,7 +4,7 @@
     <div class="p-6">
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
-            <h1 class="text-2xl font-semibold text-[#2045c2]">Gestión de Conteos</h1>
+            <h1 class="text-2xl font-semibold text-[#2045c2]">Gestión de Contenido</h1>
         </div>
 
         <!-- Búsqueda y Filtros -->
