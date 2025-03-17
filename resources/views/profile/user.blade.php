@@ -32,7 +32,7 @@
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-500">Nombre</label>
                     <div class="text-lg font-medium text-gray-900 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                        Nombre del Usuario
+                        {{auth()->user()->name}}
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-500">Email</label>
                     <div class="text-lg font-medium text-gray-900 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                        usuario@ejemplo.com
+                        {{auth()->user()->email}}
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-500">Rol</label>
                     <div class="text-lg font-medium text-gray-900 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                        Administrador
+                        {{auth()->user()->rol}}
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <label class="block text-sm font-medium text-gray-500">Estatus</label>
                     <div class="text-lg font-medium p-3 bg-gray-50 rounded-lg border border-gray-200">
                         <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                            Activo
+                            {{auth()->user()->activo}}
                         </span>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="space-y-2 md:col-span-2">
                     <label class="block text-sm font-medium text-gray-500">Fecha de Registro</label>
                     <div class="text-lg font-medium text-gray-900 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                        01/01/2023 12:00
+                        {{auth()->user()->created_at}}
                     </div>
                 </div>
             </div>

@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/criticalProducts',[vistaController::class,'criticalProducts'])->name('critical_Products');
     Route::get('/totalProducts',[vistaController::class,'totalProducts'])->name('total_Products');
     Route::get('/expensiveProducts',[vistaController::class,'expensiveProducts'])->name('expensive_Products');
+    Route::get('/Inventory_edit',[vistaController::class,'edit_inventario'])->name('Inventory_edit');
 });
 
 //Controladores

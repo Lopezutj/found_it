@@ -61,7 +61,7 @@
 
     <!-- Sección: Materiales Caros -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Caros:</h2>
+        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Caros:</h2> {{-- Alto valor --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -132,7 +132,7 @@
 
     <!-- Sección: Materiales Críticos -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Críticos:</h2>
+        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Críticos:</h2> {{-- Stock bajo --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
