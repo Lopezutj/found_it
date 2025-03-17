@@ -33,10 +33,10 @@
                             Surtido
                         </a>
                         <a href="{{route('Inventorystock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Conteo
+                            Almacen
                         </a>
                         <a href="{{route('Stock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Embarques
+                            Recepción
                         </a>
                     </div>
                 </div>
@@ -90,8 +90,10 @@
     <div class="absolute bottom-0 w-full border-t border-white/10 bg-white/5">
         <div class="flex items-center p-4">
             <div class="flex-shrink-0">
-                <div class="h-10 w-10 rounded-lg bg-white flex items-center justify-center text-foundit-blue font-medium">
-                    U
+                <div class="h-10 w-10 rounded-lg bg-white flex items-center justify-center text-foundit-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                 </div>
             </div>
             <div class="ml-3">

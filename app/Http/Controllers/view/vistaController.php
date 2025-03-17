@@ -52,4 +52,27 @@ class vistaController extends Controller
     public function registrar_ubicacion(){
         return view('inventory.register_location');
     }
+
+
+
+// Nuevo método para la vista de perfil de usuario
+public function userProfile(){
+    return view('profile.user');
+}
+
+
+
+//Vistas de modulo producto
+public function criticalProducts(){
+    return view('products.critical_products');
+}
+
+public function totalProducts(){
+    return view('products.total_products');
+}
+
+public function expensiveproducts(){
+    return view('products.expensive_products');
+}
+
 }

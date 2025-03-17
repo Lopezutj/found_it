@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="p-6">
-        <!-- Header -->
+        <!-- Header - Con fondo blanco más tenue -->
         <div class="mb-6">
-            <h1 class="text-2xl font-semibold text-[#2045c2]">Gestión de Embarques</h1>
+            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Recepción</h1>
         </div>
 
         <!-- Sección de Localizar Material - Diseño mejorado -->
@@ -41,15 +41,15 @@
                         <div class="flex gap-4 md:w-auto">
                             <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
                                 <option value="">Todas las categorías</option>
-                                <option value="ferreteria">FERRETERIA</option>
-                                <option value="electronica">ELECTRONICA</option>
-                                <option value="herramientas">HERRAMIENTO</option>
+                                <option value="ferreteria">Ferretería</option>
+                                <option value="electronica">Electrónica</option>
+                                <option value="herramientas">Herramientas</option>
                             </select>
                             <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
                                 <option value="">Ordenar por</option>
-                                <option value="codigo">CODIGO</option>
-                                <option value="nombre">NOMBRE</option>
-                                <option value="ubicacion">UBICACION</option>
+                                <option value="codigo">Código</option>
+                                <option value="nombre">Nombre</option>
+                                <option value="ubicacion">Ubicación</option>
                             </select>
                         </div>
 
@@ -117,4 +117,32 @@
     <div id="newMaterialModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
     
     </div>
+
+    <!-- De aqui es el codigo para el fondo de pantalla img pantalla completa -->
+    <div id="background-overlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('{{ asset('img/imgingreso.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -9999;
+        pointer-events: none;
+    "></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('background-overlay');
+            document.body.prepend(overlay);
+            
+            // fondo semitransparente
+            const mainContainer = document.querySelector('.min-h-screen');
+            if (mainContainer) {
+                mainContainer.style.backgroundColor = 'rgba(19, 18, 18, 0.4)';
+            }
+        });
+    </script>
 @endsection

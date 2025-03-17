@@ -25,7 +25,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/pull_out_material',[vistaController::class,'salida_material'])->name('pull_out_material');//vista
     Route::get('/gestion_embarque',[vistaController::class,'vista_Gestion'])->name('gestion_embarque');//vista
     Route::get('/register_form',[vistaController::class,'registrar_material'])->name('register_form');//vista
-    
+    Route::get('/userprofile',[vistaController::class,'userProfile'])->name('user.profile');//vista user nueva agregada
+    //vistas modulo productos
+    Route::get('/criticalProducts',[vistaController::class,'criticalProducts'])->name('critical_Products');
+    Route::get('/totalProducts',[vistaController::class,'totalProducts'])->name('total_Products');
+    Route::get('/expensiveProducts',[vistaController::class,'expensiveProducts'])->name('expensive_Products');
 });
 
 //Controladores

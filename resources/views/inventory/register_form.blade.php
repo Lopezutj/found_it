@@ -1,18 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-6">
-    <!-- Header -->
-    <div class="mb-6">
-        <h1 class="text-2xl font-semibold text-[#2045c2]">Agregar Embarque</h1>
-        <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo embarque</p>
-    </div>
+<!-- linea de gradiente  -->
+<div class="fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-[#2045c2] via-[#5a8ff2] to-[#b3d1ff]"></div>
 
+
+<div class="min-h-screen flex items-center justify-center p-6">
     <!-- Formulario de Nuevo Embarque -->
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
+    <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg border border-gray-200 relative z-10">
         <form action="{{route('RegisterMaterial')}}" method="post" class="p-8">
             @csrf
             <div class="space-y-6">
+                <!-- Header -->
+                <div class="text-center">
+                    <h1 class="text-2xl font-semibold text-[#2045c2]">Agregar Recepción</h1>
+                    <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo recepción</p>
+                </div>
+
                 <!-- Código del Material -->
                 <div>
                     <label class="block text-base font-medium text-gray-700 mb-2">
@@ -20,7 +24,7 @@
                     </label>
                     <input 
                         type="text" 
-                        name="codigo" {{-- atributo de DB --}}
+                        name="codigo"
                         placeholder="Ingrese el código del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
@@ -34,7 +38,7 @@
                     </label>
                     <input 
                         type="text" 
-                        name="nombre" {{-- atributo de DB --}}
+                        name="nombre"
                         placeholder="Ingrese el nombre del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
@@ -47,15 +51,14 @@
                         Categoría
                     </label>
                     <select 
-                        name="categoria" {{-- atributo de DB --}}
+                        name="categoria"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
                     >
                         <option value="" disabled selected>Seleccione una categoría</option>
-                        <option value="Ferretería">FERRETERIA</option>
-                        <option value="Electrónica">ELECTRONICA</option>
-                        <option value="Herramientas">HERRAMIENTA</option>
-                        
+                        <option value="Ferretería">Ferretería</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Herramientas">Herramientas</option>
                     </select>
                 </div>
 
@@ -66,7 +69,7 @@
                     </label>
                     <input 
                         type="number" 
-                        name="unidad_medida" {{-- atributo de DB --}}
+                        name="unidad_medida"
                         placeholder="Ingrese la cantidad"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         min="1"
@@ -77,7 +80,7 @@
                 <!-- Ubicación (Deshabilitada) -->
                 <div>
                     <label class="block text-base font-medium text-gray-700 mb-2">
-                        UBICACION
+                        Ubicación
                     </label>
                     <input 
                         type="text" 
@@ -85,7 +88,7 @@
                         class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                         disabled
                     >
-                    <p class="mt-2 text-sm text-gray-500">La ubicación será asignada en el área de conteo</p>
+                    <p class="mt-2 text-sm text-gray-500">La ubicación será asignada en el área de Almacen</p>
                 </div>
             </div>
 
@@ -102,7 +105,7 @@
                     type="submit"
                     class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
                 >
-                    Registrar Embarque
+                Guardar
                 </button>
             </div>
         </form>
@@ -115,7 +118,6 @@
                 alert({{ session('mensaje') }})
             </script>
         @endif
-
     </div>
 </div>
 @endsection
