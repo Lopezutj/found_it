@@ -33,6 +33,6 @@ class DetalleInventario extends Model
 
     public function estante()
     {
-        return $this->belongsTo(Estante::class);
+        return $this->belongsTo(Estante::class,'estante_id');
     }
 }

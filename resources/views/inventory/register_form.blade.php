@@ -4,10 +4,8 @@
 <!-- linea de gradiente  -->
 <div class="fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-[#2045c2] via-[#5a8ff2] to-[#b3d1ff]"></div>
 
-<<<<<<< Updated upstream
 
 <div class="min-h-screen flex items-center justify-center p-6">
-=======
     @if ($errors->any())
 
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
@@ -27,7 +25,6 @@
             </div>
     @endif
 
->>>>>>> Stashed changes
     <!-- Formulario de Nuevo Embarque -->
     <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg border border-gray-200 relative z-10">
         <form action="{{route('RegisterMaterial')}}" method="post" class="p-8">
@@ -46,12 +43,9 @@
                     </label>
                     <input 
                         type="text" 
-<<<<<<< Updated upstream
-                        name="codigo"
-=======
                         name="codigo" {{-- atributo de DB --}}
                         value="{{old('codigo')}}"
->>>>>>> Stashed changes
+
                         placeholder="Ingrese el código del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
@@ -67,13 +61,9 @@
                         Material
                     </label>
                     <input 
-                        type="text" 
-<<<<<<< Updated upstream
-                        name="nombre"
-=======
+                        type="text"                        
                         name="nombre" {{-- atributo de DB --}}
                         value="{{old('nombre')}}"
->>>>>>> Stashed changes
                         placeholder="Ingrese el nombre del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required

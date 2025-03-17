@@ -58,39 +58,64 @@ class DetalleInventarioController extends Controller
         return redirect()->route('')->with('mensaje','');
     }
 
+    public function mostrarMaterialArray(Request $request){
+            $idsSeleccionados=$request->input('detalleInventario',[]);
+            if(empty($idsSeleccionados)){
+                return redirect()->back()->with('error','No selecionaste ningun material');
+            }
+
+            //obtener detalles del inventario selecionados
+            $selectMateriales=DetalleInventario::whereIn('id',$idsSeleccionados)->get();
+            
+            return view('inventory.pull_out_material',compact('selectMateriales'));
+    
+    }
+
     public function ProcesarSeleccion(Request $request){
 
-        $idsSelecionados =$request->input('detalleInventario',[]);//recibe ids en un array 
+        $request->validate([
+            'materiales'=>'required|array',
+            'materiales.*.id'=> 'required|exists:materiales,id',
+            'materiales.*.surtir' => 'required|integer|min:1',
+        ]);
 
-        if(empty($idsSelecionados)){
-            return redirect()->back()->with('error','No selecionaste ningun material');
-        }
+        DB::transaction(function() use ($request){
+            foreach($request->materiales as $id=>$data){ //recorrer para aplicar modificacion para cada uno
+                $material =Material::findOrFail($data['id']);
 
-        //Procesar lo materiales seleccionados
-        DB::transaction(function()use ($idsSelecionados){
-            //elimnar los registros de detalle_inventario
-            DetalleInventario::whereIn('id',$idsSelecionados)->delete();
+                //validamos que no sea mayor ala cantidad disponible
+                if($data['surtir'] > $material->unidad_medida){
+                    return redirect()->back()->with('error','No se puede surtir mas de la cantidad disponible.');
+                }
 
-            //Eliminar registros de materiales
-            Material::where('id',$idsSelecionados)->delete();
-            //Eliminar registro de Estante
-            Estante::where('id',$idsSelecionados)->delete();
+                //restamos la cantidad surtida ala cantidad disponible
+                $material->update([
+                    'unidad_medida'=>$material->unidad_medida - $data['surtir']
+                ]);
+
+                //si se surte cantida completa se elimia registro 
+                if($material->unidad_medida == 0){
+
+                    $material->detalles()->each(function($detalle){
+                        $detalle->estante()->delete();//eliminar con relacion estante
+                        $detalle->delete();
+                    }); 
+
+                    $material->delete(); //eliminar material
+
+                    /* //elimiar tabla relacionada
+                    $material->detalles()->delete();
+                    //eliminar el material
+                    $material->delete(); */
+                }
+            }
         });
-
-        return redirect()->back()->with('error','Eliminado con exito');
-    }
-
-    public function mostrarMaterialArray(Request $request){
-        $idsSeleccionados=$request->input('detalleInventario',[]);
-        if(empty($idsSeleccionados)){
-            return redirect()->back()->with('error','No selecionaste ningun material');
-        }
-
-        //obtener detalles del inventario selecionados
-        $selectMateriales=DetalleInventario::whereIn('id',$idsSeleccionados)->get();
         
-        return view('inventory.pull_out_material',compact('selectMateriales'));
+        $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();
+        
+        return view('inventory.part_with_material',compact('detalleInventario'));
     }
+    
 
     public function buscarEmbarques(Request $request){
         $query=$request->input('busqueda');//capturar el valor del input buscar
