@@ -12,29 +12,33 @@
             <div class="flex flex-col md:flex-row gap-4">
                 <!-- Búsqueda -->
                 <div class="flex-1">
-                    <div class="relative flex">
-                        <input 
+                    <form action="{{route('SearchC')}}" method="GET">
+
+                        <div class="relative flex">
+                            <input 
                             type="text" 
                             id="searchInput"
+                            name="busqueda"
                             placeholder="Buscar por código o nombre..."
                             class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
-                        >
-                        <svg 
+                            >
+                            <svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             class="h-5 w-5 absolute left-3 top-2.5 text-[#2045c2]"
                             fill="none" 
                             viewBox="0 0 24 24" 
                             stroke="currentColor"
-                        >
+                            >
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                         <button 
-                            type="button"
-                            class="h-10 px-4 bg-[#2045c2] text-white rounded-r-lg hover:bg-[#1a3aa3] shadow-md"
+                        type="submit"
+                        class="h-10 px-4 bg-[#2045c2] text-white rounded-r-lg hover:bg-[#1a3aa3] shadow-md"
                         >
-                            Buscar
-                        </button>
-                    </div>
+                        Buscar
+                    </button>
+                </div>
+                </form>
                 </div>
 
                 <!-- Filtros -->
@@ -141,7 +145,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <!-- Ejemplo de fila con ubicación -->
-                            @foreach ($detalles as $detalle)
+                            @foreach ($detalleInventario as $detalle)
                                 
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$detalle->material->codigo}}</td>
@@ -166,7 +170,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @if ($detalles->isEmpty())
+                    @if ($detalleInventario->isEmpty())
                     <p class="p-4 text-gray-500">No hay Inventario.</p>
                     @endif
                 </div>

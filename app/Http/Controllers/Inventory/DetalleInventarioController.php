@@ -28,35 +28,6 @@ class DetalleInventarioController extends Controller
         return view('inventory.part_with_material',compact('detalleInventario'));
     }
 
-    // Mostrar el formulario para registrar un nuevo detalle de inventario
-    public function create()
-    {
-        $detalles = DetalleInventario::with(['materiales','estantes','users'])->get();
-        
-        return view('',compact('detalles'));
-        
-    }
-
-    // Guardar un nuevo detalle de inventario
-    public function store(Request $request)
-    {
-        $request->validate([
-            'material_id' => 'required|exists:materiales,id',
-            'estante_id' => 'required|exists:estantes,id',
-            'cantidad' => 'required|integer',
-        ]);
-
-        $detalle=new DetalleInventario();
-        $detalle->user_id=Auth::id();
-        $detalle->material_id=$request->material_id;
-        $detalle->estante_id=$request->estante_id;
-        $detalle->cantidad=$request->cantidad;
-        $detalle->observaciones=$request->observaciones;
-        $detalle->save();
-
-        return redirect()->route('')->with('mensaje','');
-    }
-
     // Mostrar el formulario para editar un detalle de inventario
     public function edit($id)
     {
@@ -98,18 +69,68 @@ class DetalleInventarioController extends Controller
         //Procesar lo materiales seleccionados
         DB::transaction(function()use ($idsSelecionados){
             //elimnar los registros de detalle_inventario
-            DetalleInventario::where('id',$idsSelecionados->delete());
+            DetalleInventario::whereIn('id',$idsSelecionados)->delete();
 
             //Eliminar registros de materiales
-            Material::where('id',$idsSelecionados->delete());
+            Material::where('id',$idsSelecionados)->delete();
             //Eliminar registro de Estante
-            Estante::where('id',$idsSelecionados->delete());
+            Estante::where('id',$idsSelecionados)->delete();
         });
 
         return redirect()->back()->with('error','Eliminado con exito');
     }
 
-    public function mostrarArrayids(){
+    public function mostrarMaterialArray(Request $request){
+        $idsSeleccionados=$request->input('detalleInventario',[]);
+        if(empty($idsSeleccionados)){
+            return redirect()->back()->with('error','No selecionaste ningun material');
+        }
+
+        //obtener detalles del inventario selecionados
+        $selectMateriales=DetalleInventario::whereIn('id',$idsSeleccionados)->get();
         
+        return view('inventory.pull_out_material',compact('selectMateriales'));
     }
+
+    public function buscarEmbarques(Request $request){
+        $query=$request->input('busqueda');//capturar el valor del input buscar
+
+        //busqueda usando join
+        $detalleInventario = DetalleInventario::whereHas('material', function ($q) use ($query) {
+            $q->where('codigo', 'LIKE','%' . $query . '%')
+                ->orWhere('nombre', 'LIKE', '%' . $query . '%');
+        })->get();
+        
+        
+        return view('inventory.gestion_embarques',compact('detalleInventario'));
+    }
+
+    public function buscarconteos(Request $request){
+        $query=$request->input('busqueda');//capturar el valor del input buscar
+
+        //busqueda usando join
+        $detalleInventario = DetalleInventario::whereHas('material', function ($q) use ($query) {
+            $q->where('codigo', 'LIKE','%' . $query . '%')
+                ->orWhere('nombre', 'LIKE', '%' . $query . '%');
+        })->get();
+        
+        $materialsinUbicacion=Material::whereDoesntHave('detalles')->get();
+        
+        
+        return view('inventory.stock_view',compact('detalleInventario','materialsinUbicacion'));
+    }
+
+    public function buscarSurtido(Request $request){
+        $query=$request->input('busqueda');//capturar el valor del input buscar
+
+        //busqueda usando join
+        $detalleInventario = DetalleInventario::whereHas('material', function ($q) use ($query) {
+            $q->where('codigo', 'LIKE','%' . $query . '%')
+                ->orWhere('nombre', 'LIKE', '%' . $query . '%');
+        })->get();
+        
+        
+        return view('inventory.part_with_material',compact('detalleInventario'));
+    }
+
 }

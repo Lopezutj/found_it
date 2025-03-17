@@ -40,6 +40,11 @@ Route::middleware('auth')->group(function(){
     Route::post('/Register_ubicacion/{id}',[MaterialController::class,'edit'])->name('Register_ubicacion');
     Route::get('/Stock',[DetalleInventarioController::class,'indexDetalle'])->name('Stock');
     Route::get('/StockSurtido',[DetalleInventarioController::class,'indexDetalleSurtido'])->name('StockSurtido');
+    Route::post('/Select_Material',[DetalleInventarioController::class,'mostrarMaterialArray'])->name('Select_Material');
+    Route::get('/Exist_Material',[DetalleInventarioController::class,'ProcesarSeleccion'])->name('Exist_Material');
+    Route::get('/SearchE',[DetalleInventarioController::class,'buscarEmbarques'])->name('SearchE');
+    Route::get('/SearchS',[DetalleInventarioController::class,'buscarSurtido'])->name('SearchS');
+    Route::get('/SearchC',[DetalleInventarioController::class,'buscarconteos'])->name('SearchC');
     
 });
 
