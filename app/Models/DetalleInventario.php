@@ -28,11 +28,11 @@ class DetalleInventario extends Model
 
     public function material()
     {
-        return $this->belongsTo(Material::class);
+        return $this->belongsTo(Material::class,'material_id');
     }
 
     public function estante()
     {
-        return $this->belongsTo(Estante::class);
+        return $this->belongsTo(Estante::class,'estante_id');
     }
 }

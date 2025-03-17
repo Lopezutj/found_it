@@ -5,13 +5,16 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-[#2045c2]">Gestión de Surtido</h1>
-            <form action="{{ route('pull_out_material') }}" method="GET" id="surtirForm">
-                <button type="submit" 
+
+            <form action="{{ route('Select_Material') }}" method="POST" id="surtirForm">
+                @csrf
+                {{-- <button type="submit"
                         id="surtirButton"
                         disabled
                         class="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg hover:bg-gray-400 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-[#2045c2] enabled:text-white enabled:hover:bg-[#1a3aa3] enabled:shadow-md">
                     Surtir Material
-                </button>
+                </button> --}}
+                
             </form>
         </div>
 
@@ -20,29 +23,33 @@
             <div class="flex flex-col md:flex-row gap-4">
                 <!-- Búsqueda -->
                 <div class="flex-1">
-                    <div class="relative flex">
-                        <input 
-                            type="text" 
-                            placeholder="Buscar por código o nombre..."
-                            class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
-                        >
-                        <svg 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            class="h-5 w-5 absolute left-3 top-2.5 text-[#2045c2]"
-                            fill="none" 
-                            viewBox="0 0 24 24" 
-                            stroke="currentColor"
-                        >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                        <button 
-                            type="button"
-                            class="h-10 px-4 bg-[#2045c2] text-white rounded-r-lg hover:bg-[#1a3aa3] shadow-md"
-                        >
-                            Buscar
-                        </button>
-                    </div>
-                </div>
+                    <form action="{{route('SearchS')}}" method="GET">
+
+                        <div class="relative flex">
+                            <input 
+                                type="text"
+                                name="busqueda"
+                                placeholder="Buscar por código o nombre..."
+                                class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                            >
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                class="h-5 w-5 absolute left-3 top-2.5 text-[#2045c2]"
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                stroke="currentColor"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <button 
+                                type="submit"
+                                class="h-10 px-4 bg-[#2045c2] text-white rounded-r-lg hover:bg-[#1a3aa3] shadow-md"
+                            >
+                                Buscar
+                            </button>
+                        </div>
+                        </div>
+                    </form>
 
                 <!-- Filtros -->
                 <div class="flex flex-wrap gap-4">
@@ -90,9 +97,12 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($detalleInventario as $inventario )
-                        
-                        <tr class="hover:bg-gray-50">
+                        <form action="{{route('Select_Material')}}" method="POST">
+                            @csrf
+                            
+                            @foreach ($detalleInventario as $inventario )
+                            
+                            <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <input type="checkbox" 
                                 name="detalleInventario[]" 
@@ -120,11 +130,21 @@
                         </td>
                     </tr>
                     @endforeach
-                    </tbody>
-                </table>
+                </tbody>
+            </table>
+            
+            <button type="submit"
+            id="surtirButton"
+            disabled
+            class="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg hover:bg-gray-400 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-[#2045c2] enabled:text-white enabled:hover:bg-[#1a3aa3] enabled:shadow-md">
+            Surtir Material
+        </button>
+    </form>
             </div>
+        
         </div>
     </div>
+
 
     <script>
         function toggleAllCheckboxes(source) {

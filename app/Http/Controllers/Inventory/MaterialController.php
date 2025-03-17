@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Inventory;
 use App\Http\Controllers\Controller;
 use App\Models\DetalleInventario;
 use App\Models\Material;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -16,19 +17,24 @@ class MaterialController extends Controller
         
         $materialsinUbicacion=Material::whereDoesntHave('detalles')->get();//obtener detalles donde el estante_id sea NULL (sin ubicación)
         //dd($materialsinUbicacion); test
-        $detalles=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
+        $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
         
-        return view('Inventory.stock_view',compact('materialsinUbicacion','detalles'));
+        return view('Inventory.stock_view',compact('materialsinUbicacion','detalleInventario'));
     }
 
     //registrar Material ala tabla materiales
     public function store(Request $request){
+
+        try{
+
         //validacion de datos del formulario
         $request->validate([
-            'codigo'=>'required',
+            'codigo'=>'required|unique:materiales,codigo',
             'nombre'=>'required',
             'categoria'=>'required',
-            'unidad_medida'=>'required|min:0',
+            'unidad_medida'=>'required|numeric|min:0',
+        ],[
+            'codigo.unique'=>'El codigo ingresado ya existe.', //mensajes personalizados
         ]);
 
         $material=Material::create([
@@ -39,6 +45,13 @@ class MaterialController extends Controller
         ]);
 
         return redirect()->route('register_form')->with('mensaje','Material registrado correctamente');
+
+        }catch(QueryException $e){
+            return redirect()->back()->with('error','Error al registrar');
+
+        }
+
+        
     }
 
     //mostrar material para editar
