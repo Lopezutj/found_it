@@ -11,9 +11,9 @@
         @csrf
         @method('PUT')
 
-    <!-- Contenedor con scroll horizontal para los materiales -->
-    <div class="w-full overflow-x-auto pb-4">
-        <!-- Materiales en fila horizontal -->
+        <!-- Contenedor con scroll horizontal para los materiales -->
+        <div class="w-full overflow-x-auto pb-4">
+            <!-- Materiales en fila horizontal -->
             <div class="flex flex-nowrap gap-4 min-w-full">
                 @foreach ( $selectMateriales as $detalle )
                 
@@ -68,33 +68,34 @@
                         </div>
                         
                         <button 
-                        type="button" 
-                        class="w-full px-3 py-2 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center justify-center gap-1"
+                            type="button" 
+                            class="w-full px-3 py-2 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center justify-center gap-1"
                         >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Localizar
-                    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Localizar
+                        </button>
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
+        </div>
 
-            <!-- Botones de acción -->
-        <div class="flex justify-center gap-4 mt-8 bg-[#f8fafc] p-4 rounded-lg border border-gray-200">
+        <!-- Botones de acción -->
+        <div class="flex justify-end gap-4 mt-8">
             <button 
                 type="button"
                 onclick="history.back()" 
-                class="px-8 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5]"
+                class="px-6 py-2 text-base font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5] w-[180px]"
             >
                 Cancelar
             </button>
             <button 
                 type="submit"
-                class="px-8 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                class="px-6 py-2 text-base font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md w-[180px]"
             >
-                Confirmar Salida
+                Confirmar salida
             </button>
         </div>
     </form>
 </div>
-
 @endsection
