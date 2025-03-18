@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-6">
+    <div class="p-6 relative">
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <h1 class="text-2xl font-semibold text-[#2045c2]">Gestión de Surtido</h1>
@@ -76,7 +76,7 @@
         </div>
 
         <!-- Tabla de Materiales -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-20">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#e6ebfa]">
@@ -103,48 +103,47 @@
                             @foreach ($detalleInventario as $inventario )
                             
                             <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <input type="checkbox" 
-                                name="detalleInventario[]" 
-                                value="{{$inventario->id}}"
-                                class="material-checkbox rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
-                                onchange="updateSurtirButton()">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="checkbox" 
+                                    name="detalleInventario[]" 
+                                    value="{{$inventario->id}}"
+                                    class="material-checkbox rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
+                                    onchange="updateSurtirButton()">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->almacen}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button 
+                                    type="button" 
+                                    class="px-3 py-1 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center gap-1"
+                                    >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Localizar
+                                </button>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->almacen}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button 
-                                type="button" 
-                                class="px-3 py-1 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center gap-1"
-                                >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Localizar
-                            </button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            
-            <button type="submit"
-            id="surtirButton"
-            disabled
-            class="px-4 py-2 bg-gray-300 text-gray-600 rounded-lg hover:bg-gray-400 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-[#2045c2] enabled:text-white enabled:hover:bg-[#1a3aa3] enabled:shadow-md">
-            Surtir Material
-        </button>
-    </form>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                
+                <button type="submit"
+                    id="surtirButton"
+                    disabled
+                    class="fixed bottom-8 right-8 px-6 py-3 text-base font-medium bg-gray-300 text-gray-600 rounded-lg hover:bg-gray-400 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-[#2045c2] enabled:text-white enabled:hover:bg-[#1a3aa3] enabled:shadow-md"
+                >
+                    Material de Surtir
+                </button>
+            </form>
             </div>
-        
         </div>
     </div>
-
 
     <script>
         function toggleAllCheckboxes(source) {
