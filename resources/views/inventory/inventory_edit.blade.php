@@ -9,7 +9,7 @@
     <div class="mb-6">
         <!-- Cambié foundit-blue por #2045c2 para mantener consistencia en la paleta de colores -->
         
-        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Editar Registro de Recibo/Entrada <p class="text-gray-600 mt-2 text-sm">Modifique los detalles del Recibo/Entrada</p></h1>
+        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">EDITAR REGISTRO RECIBO/ENTRADA <p class="text-gray-600 mt-2 text-sm">Modifique los detalles del Recibo/Entrada</p></h1>
         
     </div>
 

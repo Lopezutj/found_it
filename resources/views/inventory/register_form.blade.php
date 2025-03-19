@@ -32,7 +32,7 @@
             <div class="space-y-6">
                 <!-- Header -->
                 <div class="text-center">
-                    <h1 class="text-2xl font-semibold text-[#2045c2]">Agregar Registro de Recibo/Entrada</h1>
+                    <h1 class="text-2xl font-semibold text-[#2045c2]">AGREGAR REGISTRO RECIBO/ENTRADA</h1>
                     <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo Recibo/Entrada</p>
                 </div>
 
