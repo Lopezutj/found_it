@@ -57,7 +57,11 @@
                     <label class="block text-sm font-medium text-gray-500">Estatus</label>
                     <div class="text-lg font-medium p-3 bg-gray-50 rounded-lg border border-gray-200">
                         <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                            {{auth()->user()->activo}}
+                            @if (Auth::user()->activo == 1)
+                            <span class="text-green-600">Activo</span>
+                        @else
+                            <span class="text-green-600">Inactivo</span>
+                        @endif
                         </span>
                     </div>
                 </div>
