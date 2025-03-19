@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Barcode\BarcodeController;
 use App\Http\Controllers\Inventory\DetalleInventarioController;
 use App\Http\Controllers\Inventory\EstanteController;
 use App\Http\Controllers\Inventory\MaterialController;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/SearchE',[DetalleInventarioController::class,'buscarEmbarques'])->name('SearchE');
     Route::get('/SearchS',[DetalleInventarioController::class,'buscarSurtido'])->name('SearchS');
     Route::get('/SearchC',[DetalleInventarioController::class,'buscarconteos'])->name('SearchC');
+    Route::get('/barcode/{numeroParte}', [BarcodeController::class, 'generadorCodigoBar'])->name('barcode'); //ruta para generar barcode
     
 });
 
