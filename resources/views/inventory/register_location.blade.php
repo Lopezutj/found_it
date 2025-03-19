@@ -1,23 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Gradiente de fondo - Crea un efecto visual atractivo que mejora la experiencia del usuario -->
+<div class="fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-[#2045c2] via-[#5a8ff2] to-[#b3d1ff]"></div>
+
 <div class="p-6">
-    <!-- Header -->
+    <!-- Header - Título y descripción de la página -->
     <div class="mb-6">
-        <h1 class="text-2xl font-semibold text-[#2045c2]">Asignar Ubicación</h1>
-        <p class="text-gray-600 mt-1">Seleccione la ubicación para el material</p>
+    <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Asignar Ubicación <p class="text-gray-600 mt-2 text-sm">Seleccione la ubicación para el material</p></h1>
+    
+    
+        
     </div>
 
-    <!-- Formulario -->
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200">
+    <!-- Formulario - Contenedor principal del formulario de asignación -->
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 relative z-10">
         <form action="{{route('Register_Detalle')}}" method="POST" class="p-8">
             @csrf   
+            <!-- Token CSRF para protección contra ataques de falsificación de solicitudes -->
 
-            <input type="hidden" name="material_id" value="{{$material->id}}"> {{-- Campo oculto--}}
+            <input type="hidden" name="material_id" value="{{$material->id}}"> {{-- Campo oculto para ID del material --}}
 
             <div class="space-y-6">
-                <!-- Material No editable -->
+                <!-- Sección de información del material (No editable) -->
                 <div class="grid grid-cols-2 gap-6 pb-6 border-b border-gray-200">
+                    <!-- Código del Material - Identificador único -->
                     <div>
                         <label class="block text-sm font-medium text-gray-500 mb-1">
                             Código del Material
@@ -29,8 +36,10 @@
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
                         >
+                        <!-- Campo readonly para mostrar información sin permitir cambios -->
                     </div>
 
+                    <!-- Nombre del Material -->
                     <div>
                         <label class="block text-sm font-medium text-gray-500 mb-1">
                             Material
@@ -44,6 +53,7 @@
                         >
                     </div>
 
+                    <!-- Categoría del Material -->
                     <div>
                         <label class="block text-sm font-medium text-gray-500 mb-1">
                             Categoría
@@ -57,6 +67,7 @@
                         >
                     </div>
 
+                    <!-- Cantidad del Material -->
                     <div>
                         <label class="block text-sm font-medium text-gray-500 mb-1">
                             Cantidad
@@ -71,11 +82,12 @@
                     </div>
                 </div>
 
-                <!-- Selector de Ubicación -->
+                <!-- Selector de Ubicación - Sección para asignar la ubicación física -->
                 <div class="pt-4">
                     <h3 class="text-lg font-medium text-[#2045c2] mb-6">Seleccionar Nueva Ubicación</h3>
+                    <!-- Grid de 2 columnas para los selectores de ubicación -->
                     <div class="grid grid-cols-2 gap-6 mb-6">
-                        <!-- Selector de Almacén -->
+                        <!-- Selector de Almacén - Primera parte de la ubicación -->
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Almacén</label>
                             <select 
@@ -83,6 +95,7 @@
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
+                                <!-- Opciones de almacenes disponibles -->
                                 <option value="">Seleccione almacén</option>
                                 <option value="JW1">JW1</option>
                                 <option value="JW2">JW2</option>
@@ -91,7 +104,7 @@
                             </select>
                         </div>
 
-                        <!-- Selector de Pasillo -->
+                        <!-- Selector de Pasillo - Segunda parte de la ubicación -->
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Pasillo</label>
                             <select 
@@ -99,6 +112,7 @@
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
+                                <!-- Opciones de pasillos disponibles -->
                                 <option value="">Seleccione pasillo</option>
                                 <option value="P1">Pasillo 1</option>
                                 <option value="P2">Pasillo 2</option>
@@ -108,8 +122,9 @@
                         </div>
                     </div>
 
+                    <!-- Segunda fila de selectores -->
                     <div class="grid grid-cols-2 gap-6">
-                        <!-- Selector de Columna -->
+                        <!-- Selector de Columna - Tercera parte de la ubicación -->
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Columna</label>
                             <select 
@@ -117,6 +132,7 @@
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
+                                <!-- Opciones de columnas disponibles -->
                                 <option value="">Seleccione columna</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
@@ -125,7 +141,7 @@
                             </select>
                         </div>
 
-                        <!-- Selector de Fila -->
+                        <!-- Selector de Fila - Cuarta parte de la ubicación -->
                         <div>
                             <label class="block text-base font-medium text-gray-700 mb-2">Fila</label>
                             <select 
@@ -133,6 +149,7 @@
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
                             >
+                                <!-- Opciones de filas disponibles -->
                                 <option value="">Seleccione fila</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -144,8 +161,9 @@
                 </div>
             </div>
 
-            <!-- Botones -->
+            <!-- Botones de acción - Controles para cancelar o guardar -->
             <div class="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200">
+                <!-- Botón Cancelar - Regresa a la página anterior -->
                 <button 
                     type="button"
                     onclick="history.back()" 
@@ -153,6 +171,7 @@
                 >
                     Cancelar
                 </button>
+                <!-- Botón Guardar - Envía el formulario -->
                 <button 
                     type="submit"
                     class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
@@ -163,4 +182,18 @@
         </form>
     </div>
 </div>
+
+<!-- Script para ajustar el fondo y la visualización -->
+<script>
+    // Este script mejora la visualización del gradiente con el contenido
+    document.addEventListener('DOMContentLoaded', function() {
+        // Asegura que el contenido principal esté por encima del gradiente
+        const mainContent = document.querySelector('.p-6');
+        if (mainContent) {
+            mainContent.style.position = 'relative';
+            mainContent.style.zIndex = '10';
+        }
+    });
+</script>
 @endsection
+

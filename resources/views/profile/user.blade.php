@@ -37,6 +37,27 @@
                     <p class="text-sm font-medium text-gray-500">Fecha de Registro</p>
                     <p class="text-lg font-medium text-gray-900">{{ auth()->user()->created_at }}</p>
                 </div>
+
+                <!-- Estatus -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-500">Estatus</label>
+                    <div class="text-lg font-medium p-3 bg-gray-50 rounded-lg border border-gray-200">
+                        <span class="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            {{auth()->user()->activo}}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Fecha de Registro -->
+                <div class="space-y-2 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-500">Fecha de Registro</label>
+                    <div class="text-lg font-medium text-gray-900 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                        {{auth()->user()->created_at}}
+                    </div>
+                </div>
+            </div>
+
+            
             </div>
         </div>
 @endsection
