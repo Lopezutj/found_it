@@ -7,7 +7,7 @@
 <div class="p-6">
     <!-- Header - Título y descripción de la página -->
     <div class="mb-6">
-    <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Asignar Ubicación <p class="text-gray-600 mt-2 text-sm">Seleccione la ubicación para el material</p></h1>
+    <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">ASIGNAR UBICACIÓN <p class="text-gray-600 mt-2 text-sm">Seleccione la ubicación para el material</p></h1>
     
     
         

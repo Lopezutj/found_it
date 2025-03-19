@@ -27,7 +27,7 @@
             <div class="border-t border-gray-200 pt-4">
                 <h4 class="text-lg font-semibold text-gray-800 mb-4">Movimientos Recientes</h4>
                 <div id="movementsList" class="space-y-4">
-                    <!-- Los movimientos se cargarán dinámicamente aquí -->
+                   
                 </div>
             </div>
         </div>
@@ -48,16 +48,7 @@
 <script>
     // Datos estáticos para los materiales
     const materialsData = {
-        'MAT001': { name: 'Tornillos M4' },
-        'MAT002': { name: 'Tuercas M4' },
-        'MAT005': { name: 'Resistencias 10K' },
-        'MAT006': { name: 'Capacitores 100uF' },
-        'MAT007': { name: 'HP-09-LOL' },
-        'MAT008': { name: 'Brocas 3mm' },
-        'MAT009': { name: 'Destornilladores Phillips' },
-        'MAT010': { name: 'Microcontrolador ARM' },
-        'MAT011': { name: 'Sensor de Presión Industrial' },
-        'MAT012': { name: 'Taladro Inalámbrico Profesional' }
+        
     };
 
     // Datos estáticos para los movimientos

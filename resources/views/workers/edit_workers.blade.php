@@ -13,8 +13,8 @@
           <div class="space-y-6">
               <!-- Header -->
               <div class="text-center">
-                  <h1 class="text-2xl font-semibold text-[#2045c2]">Editar Empleado</h1>
-                  <p class="text-gray-600 mt-1">Modifique los detalles del empleado</p>
+                  <h1 class="text-2xl font-semibold text-[#2045c2]">EDITAR TRABAJADOR</h1>
+                  <p class="text-gray-600 mt-1">Modifique los detalles del trabajador</p>
               </div>
 
               <!-- Nombre -->

@@ -4,14 +4,14 @@
   <div class="p-6">
       <!-- Header -->
       <div class="mb-6">
-          <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Empleados</h1>
+          <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">TRABAJADORES</h1>
       </div>
 
       <!-- Sección de Búsqueda y Filtros -->
       <div class="mb-6 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <div class="flex flex-col md:flex-row gap-4">
               <div class="flex-1">
-                  <h2 class="text-xl font-semibold text-[#2045c2] mb-4">Gestión de Empleados</h2>
+                  <h2 class="text-xl font-semibold text-[#2045c2] mb-4">GESTION TRABAJADORES</h2>
                   <div class="flex gap-4 flex-col md:flex-row">
                       <!-- Búsqueda -->
                       <div class="flex-1">
@@ -56,9 +56,9 @@
                       </div>
 
                       <!-- Botón Nuevo Empleado -->
-                      <a href="workers/register" class="h-10 px-6 bg-[#2045c2] text-white rounded-lg hover:bg-[#1a3aa3] shadow-md transition-colors duration-150 flex items-center justify-center">
-                          Nuevo Empleado
-                      </a>
+                      <a href="{{ route('register_workers') }}" class="h-10 px-6 bg-[#2045c2] text-white rounded-lg hover:bg-[#1a3aa3] shadow-md transition-colors duration-150 flex items-center justify-center">
+    Nuevo Empleado
+</a>
                   </div>
               </div>
           </div>
