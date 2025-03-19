@@ -18,7 +18,7 @@ Route::post('/Register_user',[AuthController::class,'create'])->name('Register_u
 Route::post('/Login',[AuthController::class,'authenticate'])->name('login_user');//inicio sesion usuario
 
 //vistar de dashboards
-Route::middleware('auth')->group(function(){
+Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/Home',[AuthController::class,'index'])->name('Home');
     Route::get('/dashboard',[vistaController::class,'vistaDashborad'])->name('dashboard');//vista
     Route::get('/stock_view',[vistaController::class,'inventario_stock'])->name('stock_view');//vista
@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function(){
 });
 
 //Controladores
-Route::middleware('auth')->group(function(){
+Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/Inventorystock',[MaterialController::class,'index'])->name('Inventorystock');
     Route::post('/RegisterMaterial',[MaterialController::class,'store'])->name('RegisterMaterial');
     Route::post('/Register_Detalle',[EstanteController::class,'storeUbicacionYDetalle'])->name('Register_Detalle');
@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function(){
 });
 
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['Middleware','auth'])->group(function(){
     Route::post('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario
 });
 
