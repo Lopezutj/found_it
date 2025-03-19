@@ -1,7 +1,7 @@
 <div class="sidebar fixed inset-y-0 left-0 w-64 transform -translate-x-full lg:translate-x-0 transition duration-200 ease-in-out z-30" style="background-color: #2045c2;">
-  
+
 <!-- Company Logo and Name - Vertical Layout -->
-<div class="flex flex-col items-center pt-4 pb-4 border-b border-white/10">      
+<div class="flex flex-col items-center pt-4 pb-4 border-b border-white/10">
     <img src="{{ asset('img/logofound-it.jpg') }}" alt="Logo de Found-It" class="w-48 h-16 mx-auto">
 </div>
 
@@ -9,7 +9,7 @@
     <nav class="mt-5 px-3 overflow-y-auto h-[calc(100vh-4rem-4rem)]">
         <div class="space-y-1">
             <!-- Dashboard -->
-            <a href="" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-white text-foundit-blue hover:bg-opacity-90 transition-all duration-150 group">
+            <a href="{{route('dashboard')}}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-white text-foundit-blue hover:bg-opacity-90 transition-all duration-150 group">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
@@ -82,7 +82,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
                 Trabajadores
-            </a>        
+            </a>
         </div>
     </nav>
 
@@ -99,14 +99,14 @@
                 </a>
             </div>
             <!--DATA User -->
-            <div class="ml-3">
-                <div class="text-sm font-medium text-white">{{auth()->user()->name}}</div>
-                <div class="text-xs text-white/70">{{auth()->user()->email}}</div>
+            <div class="ml-1 flex flex-col max-w-[150px]">
+                <div class="text-sm font-medium text-white truncate">{{ auth()->user()->name }}</div>
+                <div class="text-xs text-white/70 truncate">{{ auth()->user()->email }}</div>
             </div>
             <!-- exist login -->
             <form action="{{route('logout_user')}}" method="POST" class="ml-auto">
                 @csrf
-                <button type="submit" class="p-2 rounded-lg text-white hover:bg-white/10 transition-all duration-150">
+                <button type="submit" class="p-1 rounded-lg text-white hover:bg-white/10 transition-all duration-150">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
