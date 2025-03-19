@@ -56,7 +56,7 @@
                 <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-200 ease-in-out">
                     <div class="py-2 space-y-1">
                         <a href="{{route('critical_Products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                        Materiales B. Inventario
+                        Bajo Inventario
                         </a>
                         <a href="{{route('total_Products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
                             Materiales Totales

@@ -4,7 +4,7 @@
 <div class="p-6">
     <!-- Header con título y botón de acción -->
     <div class="mb-6 flex justify-between items-center">
-        <h1 class="text-2xl font-semibold text-[#2045c2]">Materiales Bajo Inventario</h1>
+        <h1 class="text-2xl font-semibold text-[#2045c2]">BAJO INVENTARIO</h1>
       
     </div>
 

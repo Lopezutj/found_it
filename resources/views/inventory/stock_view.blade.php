@@ -5,7 +5,7 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <!-- Título con fondo semitransparente para mejor legibilidad -->
-            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Gestión de Almacén</h1>
+            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">GESTIÓN ALMACENGestión de Almacén</h1>
         </div>
 
         <!-- Búsqueda y Filtros -->

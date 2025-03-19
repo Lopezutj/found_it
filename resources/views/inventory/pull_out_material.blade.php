@@ -8,7 +8,7 @@
     <!-- Header - Título de la página -->
     <div class="mb-6">
         
-        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Surtir Materia</h1>
+        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">SURTIR MATERIAL</h1>
     </div>
     
     <!-- Formulario principal - Gestiona la salida de materiales -->

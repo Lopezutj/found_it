@@ -12,8 +12,8 @@
           <div class="space-y-6">
               <!-- Header -->
               <div class="text-center">
-                  <h1 class="text-2xl font-semibold text-[#2045c2]">Registrar Nuevo Empleado</h1>
-                  <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo empleado</p>
+                  <h1 class="text-2xl font-semibold text-[#2045c2]">REGISTRAR NUEVO TRABAJADOR</h1>
+                  <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo trabajador</p>
               </div>
 
               <!-- Nombre -->
