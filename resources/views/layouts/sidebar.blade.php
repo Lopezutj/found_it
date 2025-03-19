@@ -36,7 +36,7 @@
                             Almacen
                         </a>
                         <a href="{{route('Stock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Recepción
+                            Recibo/Entrada
                         </a>
                     </div>
                 </div>
@@ -56,13 +56,13 @@
                 <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-200 ease-in-out">
                     <div class="py-2 space-y-1">
                         <a href="{{route('critical_Products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Materiales críticos
+                        Materiales B. Inventario
                         </a>
                         <a href="{{route('total_Products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Materiales totales
+                            Materiales Totales
                         </a>
-                        <a href="{{route('critical_Products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
-                            Materiales caros
+                        <a href="{{route('expensive_products')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
+                            Materiales Alto Valor
                         </a>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
             </a>
 
             <!-- Trabajadores -->
-            <a href="/trabajadores" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-white text-foundit-blue hover:bg-opacity-90 transition-all duration-150 group">
+            <a href="{{route('workers')}}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-white text-foundit-blue hover:bg-opacity-90 transition-all duration-150 group">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>

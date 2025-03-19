@@ -32,8 +32,8 @@
             <div class="space-y-6">
                 <!-- Header -->
                 <div class="text-center">
-                    <h1 class="text-2xl font-semibold text-[#2045c2]">Agregar Recepción</h1>
-                    <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo recepción</p>
+                    <h1 class="text-2xl font-semibold text-[#2045c2]">Agregar Registro de Recibo/Entrada</h1>
+                    <p class="text-gray-600 mt-1">Ingrese los detalles del nuevo Recibo/Entrada</p>
                 </div>
 
                 <!-- Código del Material -->
@@ -118,7 +118,7 @@
                     </label>
                     <input 
                         type="text" 
-                        placeholder="Pendiente de asignar en área de conteo"
+                        placeholder="Pendiente de asignar en área de Almacen"
                         class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                         disabled
                     >

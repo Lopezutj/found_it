@@ -71,15 +71,7 @@
                 </div>
             </div>
 
-            <!-- Botones de Acción -->
-            <div class="mt-8 flex justify-end">
-                <button 
-                    type="button"
-                    class="px-6 py-3 text-lg font-medium text-white bg-foundit-blue rounded-lg hover:bg-foundit-blue/90 shadow-md"
-                >
-                    Editar Perfil
-                </button>
-            </div>
+            
         </div>
     </div>
 </div>
