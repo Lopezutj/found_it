@@ -99,14 +99,14 @@
                 </a>
             </div>
             <!--DATA User -->
-            <div class="ml-3">
-                <div class="text-sm font-medium text-white">{{auth()->user()->name}}</div>
-                <div class="text-xs text-white/70">{{auth()->user()->email}}</div>
+            <div class="ml-1 flex flex-col max-w-[150px]">
+                <div class="text-sm font-medium text-white truncate">{{ auth()->user()->name }}</div>
+                <div class="text-xs text-white/70 truncate">{{ auth()->user()->email }}</div>
             </div>
             <!-- exist login -->
             <form action="{{route('logout_user')}}" method="POST" class="ml-auto">
                 @csrf
-                <button type="submit" class="p-2 rounded-lg text-white hover:bg-white/10 transition-all duration-150">
+                <button type="submit" class="p-1 rounded-lg text-white hover:bg-white/10 transition-all duration-150">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
