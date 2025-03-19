@@ -75,4 +75,18 @@ public function expensiveproducts(){
     return view('products.expensive_products');
 }
 
+
+//vistas de modulo de workers
+public function workers(){
+    return view('workers.workers');
+}
+
+public function registerworkers(){
+    return view('workers.register_workers');
+}
+
+public function editworkers(){
+    return view('workers.edit_workers');
+}
+
 }

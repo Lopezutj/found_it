@@ -4,7 +4,7 @@
 <div class="p-6">
     
     <div class="mb-6 flex justify-between items-center">
-        <h1 class="text-2xl font-semibold text-[#2045c2]">Materiales Delicados y Caros</h1>
+        <h1 class="text-2xl font-semibold text-[#2045c2]">Materiales Alto Valor</h1>
         
     </div>
 
@@ -66,7 +66,7 @@
                 <thead class="bg-[#e6ebfa]">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left">
-                            <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                            
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -80,7 +80,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">
-                            <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                            
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT010</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Microcontrolador ARM</td>
@@ -102,7 +102,7 @@
                     </tr>
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">
-                            <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                           
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT011</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sensor de Presión Industrial</td>
@@ -124,7 +124,7 @@
                     </tr>
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">
-                            <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                           
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT015</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Circuito Integrado Especializado</td>

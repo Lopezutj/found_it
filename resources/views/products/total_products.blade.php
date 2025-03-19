@@ -61,14 +61,14 @@
 
     <!-- Sección: Materiales Caros -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Caros:</h2> {{-- Alto valor --}}
+        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales de Alto Valor:</h2> {{-- Alto valor --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#e6ebfa]">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -82,7 +82,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                               
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT010</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Microcontrolador ARM</td>
@@ -104,7 +104,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT011</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sensor de Presión Industrial</td>
@@ -132,14 +132,14 @@
 
     <!-- Sección: Materiales Críticos -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales Críticos:</h2> {{-- Stock bajo --}}
+        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales B. Inventario:</h2> {{-- Stock bajo --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-[#e6ebfa]">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -153,7 +153,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                               
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT007</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">HP-09-LOL</td>
@@ -175,7 +175,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT005</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Resistencias 10K</td>
@@ -210,7 +210,7 @@
                     <thead class="bg-[#e6ebfa]">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -224,7 +224,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                              
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT001</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tornillos M4</td>
@@ -246,7 +246,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                               
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT002</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tuercas M4</td>
@@ -281,7 +281,7 @@
                     <thead class="bg-[#e6ebfa]">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                              
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
@@ -295,7 +295,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                                
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT020</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Destornillador Precisión</td>
@@ -317,7 +317,7 @@
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4">
-                                <input type="checkbox" class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]">
+                              
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT021</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alicate de Corte</td>

@@ -4,7 +4,7 @@
     <div class="p-6">
         <!-- Header - Con fondo blanco más tenue -->
         <div class="mb-6">
-            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Recepción</h1>
+            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">Recibo/Entrada</h1>
         </div>
 
         <!-- Sección de Localizar Material - Diseño mejorado -->

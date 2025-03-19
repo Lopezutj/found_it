@@ -27,11 +27,18 @@ Route::middleware('auth')->group(function(){
     Route::get('/gestion_embarque',[vistaController::class,'vista_Gestion'])->name('gestion_embarque');//vista
     Route::get('/register_form',[vistaController::class,'registrar_material'])->name('register_form');//vista
     Route::get('/userprofile',[vistaController::class,'userProfile'])->name('user.profile');//vista user nueva agregada
+    Route::get('/Inventory_edit',[vistaController::class,'edit_inventario'])->name('Inventory_edit');
     //vistas modulo productos
     Route::get('/criticalProducts',[vistaController::class,'criticalProducts'])->name('critical_Products');
     Route::get('/totalProducts',[vistaController::class,'totalProducts'])->name('total_Products');
-    Route::get('/expensiveProducts',[vistaController::class,'expensiveProducts'])->name('expensive_Products');
-    Route::get('/Inventory_edit',[vistaController::class,'edit_inventario'])->name('Inventory_edit');
+    Route::get('/expensiveproducts',[vistaController::class,'expensiveproducts'])->name('expensive_products');
+    //Vistas de modulo workers
+    Route::get('/workers',[vistaController::class,'workers'])->name('workers');
+    Route::get('/registerworkers',[vistaController::class,'registerworkers'])->name('register_workers');
+    Route::get('/editworkers',[vistaController::class,'editworkers'])->name('edit_workers');
+
+    
+
 });
 
 //Controladores
