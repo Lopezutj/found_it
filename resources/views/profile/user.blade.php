@@ -25,8 +25,20 @@
             <div class="col-span-2 grid grid-cols-2 gap-4">
                 <div>
                     <p class="text-sm font-medium text-gray-500">Rol</p>
-                    <p class="text-lg font-medium text-gray-900">{{ auth()->user()->rol }}</p>
+                    <p class="text-lg font-medium text-gray-900">
+                        @switch(auth()->user()->rol)
+                            @case('adm')
+                                Administrador
+                                @break
+                            @case('oper')
+                                Operador
+                                @break
+                            @default
+                                {{ auth()->user()->rol }}
+                        @endswitch
+                    </p>
                 </div>
+
                 <div>
                     <p class="text-sm font-medium text-gray-500">Estatus</p>
                     <span class="px-3 py-1 rounded-full text-sm font-medium {{ auth()->user()->activo ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
@@ -40,7 +52,7 @@
 
             </div>
 
-            
+
             </div>
         </div>
 @endsection
