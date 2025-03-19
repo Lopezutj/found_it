@@ -1,6 +1,6 @@
 <!-- Banner para Software de Gestión y Surtido de Almacén -->
 <div align="center">
-  <img src="https://imgur.com/ouVEluV" alt="Found_it" width="800" height="600"/>
+  <img src="https://i.imgur.com/ouVEluV.png" alt="Found_it" width="800" height="600"/>
   
   <h1 style="font-size: 2.5em; color: #2E86C1; margin-top: 20px;">Sistema de Gestión de Almacén - Found It</h1>
   
