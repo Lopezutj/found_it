@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     //Autentificaciones
 
-    
+
     //Funcion autentificacion
     public function authenticate(Request $request){
         //validar credenciales
@@ -20,7 +20,7 @@ class AuthController extends Controller
             'email'=>'required|email',
             'password'=>'required|string|min:6',
         ]);
-        
+
         //intentar autenticar usuario
         if(Auth::attempt($credenciales)){
             $request->session()->regenerate(); //regenera la session para seguridad
@@ -54,13 +54,13 @@ class AuthController extends Controller
                 'activo'=>$request->activo ?? 1,  // Establece 'activo' a 1 por defecto
             ]);
 
-            return redirect()->route('login')->with('mensaje','Usuario Creado Con Exito');
+            return redirect()->route('workers')->with('mensaje','Usuario Creado Con Exito');
 
     }
 
     //cerrar sesion
     public function logout(Request $request){
-        
+
         Auth::logout(); //Cierra la sesion del usuario
 
         $request->session()->invalidate(); //invalida la sesion

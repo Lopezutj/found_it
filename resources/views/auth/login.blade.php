@@ -25,11 +25,6 @@
                     <input type="password" name="password" placeholder="Contraseña" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <button type="submit" value="Inciar_sesion" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Ingresar</button>
                 </form>
-
-                <div class="text-center mt-4">
-                    <p class="text-sm text-gray-600">¿No tienes cuenta? <a href="{{route('registrarUsuario')}}" class="text-blue-500 hover:text-blue-700">Regístrate aquí</a></p>
-                </div>
-
             </div>
 
         </div><!-- cierre de caja del login -->
@@ -37,7 +32,7 @@
         <script>
             alert('{{$mensaje}}');
         </script>
-        
+
         @endif
     </main>
 
