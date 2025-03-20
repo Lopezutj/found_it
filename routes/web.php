@@ -38,7 +38,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/editworkers',[vistaController::class,'editworkers'])->name('edit_workers');
 
     
-
+    Route::get('/reports',[vistaController::class,'reports'])->name('reports');
 });
 
 //Controladores

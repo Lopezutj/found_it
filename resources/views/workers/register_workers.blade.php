@@ -27,6 +27,7 @@
                       placeholder="Ingrese el nombre completo"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Ingrese el nombre completo del trabajador"
                   >
               </div>
 
@@ -41,6 +42,7 @@
                       placeholder="Ingrese el correo electrónico"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Ingrese un correo electrónico válido para el trabajador"
                   >
               </div>
 
@@ -55,6 +57,7 @@
                       placeholder="Ingrese la contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Ingrese una contraseña segura para el trabajador"
                   >
               </div>
 
@@ -69,6 +72,7 @@
                       placeholder="Confirme la contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Repita la contraseña para confirmar que coincide"
                   >
               </div>
 
@@ -77,9 +81,9 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Permisos de Usuario
                   </label>
-                  <select name="rol" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
-                      <option value="oper">Operador</option>
-                      <option value="adm">Administrador</option>
+                  <select name="rol" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Seleccione el nivel de permisos que tendrá el trabajador">
+                      <option value="oper" title="Acceso limitado a funciones operativas">Operador</option>
+                      <option value="adm" title="Acceso completo a todas las funciones del sistema">Administrador</option>
                   </select>
               </div>
 
@@ -89,11 +93,11 @@
                       Estatus
                   </label>
                   <div class="flex items-center space-x-4">
-                      <label class="inline-flex items-center">
+                      <label class="inline-flex items-center" title="El trabajador podrá acceder al sistema">
                           <input type="radio" name="status" value="active" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]" checked>
                           <span class="ml-2 text-gray-700">Activo</span>
                       </label>
-                      <label class="inline-flex items-center">
+                      <label class="inline-flex items-center" title="El trabajador no podrá acceder al sistema">
                           <input type="radio" name="status" value="inactive" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]">
                           <span class="ml-2 text-gray-700">Inactivo</span>
                       </label>
@@ -106,12 +110,14 @@
               <a
                   href="../workers"
                   class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5] flex items-center justify-center"
+                  title="Cancelar el registro y volver a la lista de trabajadores"
               >
                   Cancelar
               </a>
               <button
                   type="submit"
                   class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                  title="Guardar la información del nuevo trabajador"
               >
                   Guardar
               </button>
@@ -120,4 +126,3 @@
   </div>
 </div>
 @endsection
-

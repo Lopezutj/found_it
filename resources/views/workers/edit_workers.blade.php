@@ -29,6 +29,7 @@
                       placeholder="Ingrese el nombre completo"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Modifique el nombre completo del trabajador"
                   >
               </div>
 
@@ -44,6 +45,7 @@
                       placeholder="Ingrese el correo electrónico"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
+                      title="Modifique el correo electrónico del trabajador"
                   >
               </div>
 
@@ -57,6 +59,7 @@
                       name="password"
                       placeholder="Ingrese la nueva contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                      title="Deje este campo en blanco si no desea cambiar la contraseña actual"
                   >
               </div>
 
@@ -70,6 +73,7 @@
                       name="password_confirmation"
                       placeholder="Confirme la nueva contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                      title="Repita la nueva contraseña para confirmar que coincide"
                   >
               </div>
 
@@ -78,9 +82,9 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Permisos de Usuario
                   </label>
-                  <select name="is_admin" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
-                      <option value="0">Trabajador</option>
-                      <option value="1" selected>Administrador</option>
+                  <select name="is_admin" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Modifique el nivel de permisos del trabajador">
+                      <option value="0" title="Acceso limitado a funciones operativas">Trabajador</option>
+                      <option value="1" selected title="Acceso completo a todas las funciones del sistema">Administrador</option>
                   </select>
               </div>
 
@@ -90,11 +94,11 @@
                       Estatus
                   </label>
                   <div class="flex items-center space-x-4">
-                      <label class="inline-flex items-center">
+                      <label class="inline-flex items-center" title="El trabajador podrá acceder al sistema">
                           <input type="radio" name="status" value="active" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]" checked>
                           <span class="ml-2 text-gray-700">Activo</span>
                       </label>
-                      <label class="inline-flex items-center">
+                      <label class="inline-flex items-center" title="El trabajador no podrá acceder al sistema">
                           <input type="radio" name="status" value="inactive" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]">
                           <span class="ml-2 text-gray-700">Inactivo</span>
                       </label>
@@ -111,6 +115,7 @@
                       value="01/01/2023"
                       class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                       readonly
+                      title="Fecha en que el trabajador fue registrado en el sistema (no modificable)"
                   >
               </div>
           </div>
@@ -120,6 +125,7 @@
               <a 
                   href="../../workers" 
                   class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5] flex items-center justify-center"
+                  title="Cancelar la edición y volver a la lista de trabajadores"
               >
                   Cancelar
               </a>
@@ -127,6 +133,7 @@
                   type="button"
                   onclick="window.location.href='../../workers'"
                   class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                  title="Guardar los cambios realizados al trabajador"
               >
                   Actualizar
               </button>
@@ -135,4 +142,3 @@
   </div>
 </div>
 @endsection
-

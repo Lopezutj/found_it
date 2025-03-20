@@ -8,9 +8,6 @@
     <!-- Header - Título y descripción de la página -->
     <div class="mb-6">
     <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">ASIGNAR UBICACIÓN <p class="text-gray-600 mt-2 text-sm">Seleccione la ubicación para el material</p></h1>
-    
-    
-        
     </div>
 
     <!-- Formulario - Contenedor principal del formulario de asignación -->
@@ -35,6 +32,7 @@
                             value="{{$material->codigo}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
+                            title="Código único que identifica el material en el sistema"
                         >
                         <!-- Campo readonly para mostrar información sin permitir cambios -->
                     </div>
@@ -50,6 +48,7 @@
                             value="{{$material->nombre}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
+                            title="Nombre descriptivo del material"
                         >
                     </div>
 
@@ -64,6 +63,7 @@
                             value="{{$material->categoria}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
+                            title="Clasificación del material según su tipo"
                         >
                     </div>
 
@@ -78,6 +78,7 @@
                             value="{{$material->unidad_medida}}"
                             class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-700"
                             readonly
+                            title="Cantidad disponible del material"
                         >
                     </div>
                 </div>
@@ -94,13 +95,14 @@
                                 name="almacen"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
+                                title="Seleccione el almacén donde se ubicará el material"
                             >
                                 <!-- Opciones de almacenes disponibles -->
                                 <option value="">Seleccione almacén</option>
-                                <option value="JW1">JW1</option>
-                                <option value="JW2">JW2</option>
-                                <option value="JW3">JW3</option>
-                                <option value="JW4">JW4</option>
+                                <option value="JW1" title="Almacén principal">JW1</option>
+                                <option value="JW2" title="Almacén secundario">JW2</option>
+                                <option value="JW3" title="Almacén de materiales especiales">JW3</option>
+                                <option value="JW4" title="Almacén de reserva">JW4</option>
                             </select>
                         </div>
 
@@ -111,13 +113,14 @@
                                 name="pasillo"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
+                                title="Seleccione el pasillo donde se ubicará el material"
                             >
                                 <!-- Opciones de pasillos disponibles -->
                                 <option value="">Seleccione pasillo</option>
-                                <option value="P1">Pasillo 1</option>
-                                <option value="P2">Pasillo 2</option>
-                                <option value="P3">Pasillo 3</option>
-                                <option value="P4">Pasillo 4</option>
+                                <option value="P1" title="Pasillo 1 - Zona frontal">Pasillo 1</option>
+                                <option value="P2" title="Pasillo 2 - Zona central">Pasillo 2</option>
+                                <option value="P3" title="Pasillo 3 - Zona posterior">Pasillo 3</option>
+                                <option value="P4" title="Pasillo 4 - Zona lateral">Pasillo 4</option>
                             </select>
                         </div>
                     </div>
@@ -131,13 +134,14 @@
                                 name="columna"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
+                                title="Seleccione la columna donde se ubicará el material"
                             >
                                 <!-- Opciones de columnas disponibles -->
                                 <option value="">Seleccione columna</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
+                                <option value="A" title="Columna A - Lado izquierdo">A</option>
+                                <option value="B" title="Columna B - Centro izquierda">B</option>
+                                <option value="C" title="Columna C - Centro derecha">C</option>
+                                <option value="D" title="Columna D - Lado derecho">D</option>
                             </select>
                         </div>
 
@@ -148,13 +152,14 @@
                                 name="fila"
                                 class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                 required
+                                title="Seleccione la fila donde se ubicará el material"
                             >
                                 <!-- Opciones de filas disponibles -->
                                 <option value="">Seleccione fila</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <option value="1" title="Fila 1 - Nivel inferior">1</option>
+                                <option value="2" title="Fila 2 - Nivel medio-bajo">2</option>
+                                <option value="3" title="Fila 3 - Nivel medio-alto">3</option>
+                                <option value="4" title="Fila 4 - Nivel superior">4</option>
                             </select>
                         </div>
                     </div>
@@ -168,6 +173,7 @@
                     type="button"
                     onclick="history.back()" 
                     class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5]"
+                    title="Cancelar la asignación y volver a la página anterior"
                 >
                     Cancelar
                 </button>
@@ -175,6 +181,7 @@
                 <button 
                     type="submit"
                     class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                    title="Guardar la ubicación asignada al material"
                 >
                     Guardar Ubicación
                 </button>
@@ -196,4 +203,3 @@
     });
 </script>
 @endsection
-
