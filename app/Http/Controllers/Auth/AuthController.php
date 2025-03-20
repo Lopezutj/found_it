@@ -7,11 +7,25 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+
+use function PHPUnit\Framework\isEmpty;
 
 class AuthController extends Controller
 {
     //Autentificaciones
 
+    public function indexUsers ()
+    {
+        $users=User::all();
+
+        if(isEmpty($users)){
+            return Redirect()->back()->with('Error', 'No hay usuarios');
+        }
+
+        return view('workesr.workers' , compact('users'));
+
+    }
 
     //Funcion autentificacion
     public function authenticate(Request $request){
