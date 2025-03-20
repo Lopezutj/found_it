@@ -7,7 +7,7 @@
 <div class="min-h-screen flex items-center justify-center p-6">
   <!-- Formulario de Nuevo Empleado -->
   <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg border border-gray-200 relative z-10">
-      <form action="#" method="post" class="p-8">
+      <form action="{{route('Register_user')}}" method="post" class="p-8">
           @csrf
           <div class="space-y-6">
               <!-- Header -->
@@ -21,8 +21,8 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Nombre
                   </label>
-                  <input 
-                      type="text" 
+                  <input
+                      type="text"
                       name="name"
                       placeholder="Ingrese el nombre completo"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
@@ -35,8 +35,8 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Email
                   </label>
-                  <input 
-                      type="email" 
+                  <input
+                      type="email"
                       name="email"
                       placeholder="Ingrese el correo electrónico"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
@@ -49,8 +49,8 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Contraseña
                   </label>
-                  <input 
-                      type="text" 
+                  <input
+                      type="text"
                       name="password"
                       placeholder="Ingrese la contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
@@ -63,8 +63,8 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Confirmar Contraseña
                   </label>
-                  <input 
-                      type="text" 
+                  <input
+                      type="text"
                       name="password_confirmation"
                       placeholder="Confirme la contraseña"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
@@ -77,9 +77,9 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Permisos de Usuario
                   </label>
-                  <select name="is_admin" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
-                      <option value="0">Trabajador</option>
-                      <option value="1">Administrador</option>
+                  <select name="rol" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
+                      <option value="oper">Operador</option>
+                      <option value="adm">Administrador</option>
                   </select>
               </div>
 
@@ -103,15 +103,14 @@
 
           <!-- Botones de Acción -->
           <div class="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200">
-              <a 
-                  href="../workers" 
+              <a
+                  href="../workers"
                   class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5] flex items-center justify-center"
               >
                   Cancelar
               </a>
-              <button 
-                  type="button"
-                  onclick="window.location.href='../workers'"
+              <button
+                  type="submit"
                   class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
               >
                   Guardar
