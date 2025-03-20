@@ -45,10 +45,10 @@
                         type="text" 
                         name="codigo" {{-- atributo de DB --}}
                         value="{{old('codigo')}}"
-
                         placeholder="Ingrese el código del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
+                        title="Código único que identificará el material en el sistema"
                     >
                     @error('codigo')
                         <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
@@ -67,6 +67,7 @@
                         placeholder="Ingrese el nombre del material"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
+                        title="Nombre descriptivo del material"
                     >
                     @error('nombre')
                         <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
@@ -83,11 +84,12 @@
                         name="categoria"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
+                        title="Clasificación del material según su tipo"
                     >
                         <option value="" disabled selected>Seleccione una categoría</option>
-                        <option value="Ferretería">Ferretería</option>
-                        <option value="Electrónica">Electrónica</option>
-                        <option value="Herramientas">Herramientas</option>
+                        <option value="Ferretería" title="Materiales de ferretería como tornillos, tuercas, etc.">Ferretería</option>
+                        <option value="Electrónica" title="Componentes electrónicos como cables, conectores, etc.">Electrónica</option>
+                        <option value="Herramientas" title="Herramientas de trabajo como destornilladores, llaves, etc.">Herramientas</option>
                     </select>
                 </div>
 
@@ -105,6 +107,7 @@
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         min="1"
                         required
+                        title="Cantidad de unidades del material"
                     >
                     @error('unidad_medida')
                         <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
@@ -121,6 +124,7 @@
                         placeholder="Pendiente de asignar en área de Almacen"
                         class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                         disabled
+                        title="La ubicación será asignada posteriormente por el personal de almacén"
                     >
                     <p class="mt-2 text-sm text-gray-500">La ubicación será asignada en el área de Almacen</p>
                 </div>
@@ -132,12 +136,14 @@
                     type="button"
                     onclick="history.back()" 
                     class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5]"
+                    title="Cancelar el registro y volver a la página anterior"
                 >
                     Cancelar
                 </button>
                 <button 
                     type="submit"
                     class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                    title="Guardar el nuevo material en el sistema"
                 >
                 Guardar
                 </button>

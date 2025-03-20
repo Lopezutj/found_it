@@ -5,7 +5,7 @@
         <!-- Header -->
         <div class="mb-6 flex justify-between items-center">
             <!-- Título con fondo semitransparente para mejor legibilidad -->
-            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">GESTIÓN SURTIDO</h1>
+            <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded" title="Página para gestionar la selección y surtido de materiales">GESTIÓN SURTIDO</h1>
 
             <!-- Formulario para seleccionar materiales - Inicialmente vacío -->
             <form action="{{ route('Select_Material') }}" method="POST" id="surtirForm">
@@ -34,6 +34,7 @@
                                 name="busqueda"
                                 placeholder="Buscar por código o nombre..."
                                 class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
+                                title="Ingrese el código o nombre del material que desea buscar"
                             >
                             <!-- Icono de lupa para la búsqueda -->
                             <svg 
@@ -49,6 +50,7 @@
                             <button 
                                 type="submit"
                                 class="h-10 px-4 bg-[#2045c2] text-white rounded-r-lg hover:bg-[#1a3aa3] shadow-md"
+                                title="Iniciar búsqueda con los criterios ingresados"
                             >
                                 Buscar
                             </button>
@@ -59,20 +61,20 @@
                 <!-- Filtros - Selectores para filtrar por diferentes criterios -->
                 <div class="flex flex-wrap gap-4">
                     <!-- Selector de categorías -->
-                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
+                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Filtrar materiales por categoría">
                         <option value="">Todas las categorías</option>
                         <option value="ferreteria">Ferretería</option>
                         <option value="electronica">Electrónica</option>
                         <option value="herramientas">Herramientas</option>
                     </select>
                     <!-- Selector de ordenamiento -->
-                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
+                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Cambiar el orden de visualización de los materiales">
                         <option value="">Ordenar por</option>
                         <option value="codigo">Código</option>
                         <option value="nombre">Nombre</option>
                     </select>
                     <!-- Selector de almacenes -->
-                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]">
+                    <select class="h-10 rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Filtrar materiales por almacén">
                         <option value="">Todos los almacenes</option>
                         <option value="JW1">JW1</option>
                         <option value="JW2">JW2</option>
@@ -96,16 +98,17 @@
                                 <input type="checkbox" 
                                     id="selectAll"
                                     class="rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
-                                    onchange="toggleAllCheckboxes(this)">
+                                    onchange="toggleAllCheckboxes(this)"
+                                    title="Seleccionar o deseleccionar todos los materiales">
                             </th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Barcode</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Almacén</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ubicación</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código único que identifica el material">Código</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código de barras para escaneo">Barcode</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Nombre descriptivo del material">Material</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Clasificación del material">Categoría</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Cantidad disponible en inventario">Cantidad</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Identificador del almacén">Almacén</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Ubicación física completa (pasillo-columna-fila)">Ubicación</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Opciones disponibles para este material">Acciones</th>
                         </tr>
                     </thead>
                     <!-- Cuerpo de la tabla con datos dinámicos -->
@@ -124,23 +127,26 @@
                                     name="detalleInventario[]" 
                                     value="{{$inventario->id}}"
                                     class="material-checkbox rounded border-gray-300 text-[#2045c2] focus:ring-[#2045c2]"
-                                    onchange="updateSurtirButton()">
+                                    onchange="updateSurtirButton()"
+                                    title="Seleccionar este material para surtir">
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><img src="{{ route('barcode', ['numeroParte' => $inventario->material->codigo]) }}" alt="Código de Barras"
                                     style="width: 150px; height: 50px;"
+                                    title="Código de barras para {{$inventario->material->nombre}}"
                                     ></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->almacen}}</td>
                                 <!-- Formato de ubicación: pasillo-columna-fila -->
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" title="Pasillo {{$inventario->estante->pasillo}}, Columna {{$inventario->estante->columna}}, Fila {{$inventario->estante->fila}}">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <!-- Botón para localizar material en el almacén -->
                                     <button 
                                     type="button" 
                                     class="px-3 py-1 text-sm font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md flex items-center gap-1"
+                                    title="Muestra la ubicación exacta del material en el almacén"
                                     >
                                     <!-- Icono de ubicación -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
@@ -160,6 +166,7 @@
                     id="surtirButton"
                     disabled
                     class="fixed bottom-8 right-8 px-6 py-3 text-base font-medium bg-gray-300 text-gray-600 rounded-lg hover:bg-gray-400 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed enabled:bg-[#2045c2] enabled:text-white enabled:hover:bg-[#1a3aa3] enabled:shadow-md"
+                    title="Proceder a surtir los materiales seleccionados"
                 >
                     Material de Surtir
                 </button>
@@ -170,6 +177,10 @@
 
     <!-- De aqui es el codigo para el fondo de pantalla img pantalla completa -->
     <div id="background-overlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width  style=
         position: fixed;
         top: 0;
         left: 0;
@@ -234,4 +245,3 @@
         });
     </script>
 @endsection
-

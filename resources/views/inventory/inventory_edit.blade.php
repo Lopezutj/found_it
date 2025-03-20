@@ -8,9 +8,7 @@
     <!-- Header - Título y descripción de la página -->
     <div class="mb-6">
         <!-- Cambié foundit-blue por #2045c2 para mantener consistencia en la paleta de colores -->
-        
-        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded">EDITAR REGISTRO RECIBO/ENTRADA <p class="text-gray-600 mt-2 text-sm">Modifique los detalles del Recibo/Entrada</p></h1>
-        
+        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded" title="Formulario para modificar los detalles de un material existente">EDITAR REGISTRO RECIBO/ENTRADA <p class="text-gray-600 mt-2 text-sm">Modifique los detalles del Recibo/Entrada</p></h1>
     </div>
 
     <!-- Formulario de Edición de Embarque - Contenedor principal del formulario -->
@@ -28,6 +26,7 @@
                         value="EMB001"
                         class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                         readonly
+                        title="Código único que identifica el material (no modificable)"
                     >
                     <!-- El atributo readonly impide la edición pero permite copiar el valor -->
                 </div>
@@ -42,6 +41,7 @@
                         value="Tornillos M4"
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
+                        title="Nombre descriptivo del material"
                     >
                     <!-- El atributo required asegura que el campo no quede vacío -->
                 </div>
@@ -54,13 +54,13 @@
                     <select 
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         required
+                        title="Clasificación del material según su tipo"
                     >
                         <!-- Opciones del selector con la opción actual preseleccionada -->
                         <option value="" disabled>Seleccione una categoría</option>
-                        <option value="ferreteria" selected>Ferretería</option>
-                        <option value="electronica">Electrónica</option>
-                        <option value="herramientas">Herramientas</option>
-                        
+                        <option value="ferreteria" selected title="Materiales de ferretería como tornillos, tuercas, etc.">Ferretería</option>
+                        <option value="electronica" title="Componentes electrónicos como cables, conectores, etc.">Electrónica</option>
+                        <option value="herramientas" title="Herramientas de trabajo como destornilladores, llaves, etc.">Herramientas</option>
                     </select>
                 </div>
 
@@ -75,6 +75,7 @@
                         class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                         min="1"
                         required
+                        title="Cantidad de unidades del material (mínimo 1)"
                     >
                     <!-- El atributo min="1" evita valores negativos o cero -->
                 </div>
@@ -89,6 +90,7 @@
                         value="Pendiente de asignar en área de Almacen"
                         class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                         disabled
+                        title="La ubicación será asignada posteriormente por el personal de almacén"
                     >
                     <!-- Texto explicativo para el usuario -->
                     <p class="mt-2 text-sm text-gray-500">La ubicación será asignada en el área de Almacen</p>
@@ -102,6 +104,7 @@
                     type="button"
                     onclick="history.back()" 
                     class="px-6 py-3 text-lg font-medium text-[#ff3333] bg-[#fff5f5] border border-[#ff3333] rounded-lg hover:bg-[#ffe5e5]"
+                    title="Cancelar la edición y volver a la página anterior"
                 >
                     Cancelar
                 </button>
@@ -109,6 +112,7 @@
                 <button 
                     type="submit"
                     class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
+                    title="Guardar los cambios realizados al material"
                 >
                     Guardar Cambios
                 </button>
@@ -130,4 +134,3 @@
     });
 </script>
 @endsection
-
