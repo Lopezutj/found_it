@@ -89,4 +89,8 @@ public function editworkers(){
     return view('workers.edit_workers');
 }
 
+public function reports(){
+    return view('reporte.reports');
+}
+
 }
