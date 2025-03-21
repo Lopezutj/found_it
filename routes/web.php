@@ -17,6 +17,8 @@ Route::get('/Register_User',[vistaController::class,'vistaregisterUser'])->name(
 Route::post('/Register_user',[AuthController::class,'create'])->name('Register_user');//regitro de usuario
 Route::post('/Login',[AuthController::class,'authenticate'])->name('login_user');//inicio sesion usuario
 
+Route::get('/UsuarioEliminado/{id}',[AuthController::class,'deleteUser'])->name('UsuarioEliminado');
+
 //vistar de dashboards
 Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/Home',[AuthController::class,'index'])->name('Home');
@@ -36,7 +38,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/workers',[vistaController::class,'workers'])->name('workers');
     Route::get('/registerworkers',[vistaController::class,'registerworkers'])->name('register_workers');
     Route::get('/editworkers',[vistaController::class,'editworkers'])->name('edit_workers');
-  
+
     Route::get('/reports',[vistaController::class,'reports'])->name('reports');
 });
 

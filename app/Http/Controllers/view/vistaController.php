@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\view;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class vistaController extends Controller
@@ -78,7 +79,8 @@ public function expensiveproducts(){
 
 //vistas de modulo de workers
 public function workers(){
-    return view('workers.workers');
+    $users=User::all();
+    return view('workers.workers', compact('users'));
 }
 
 public function registerworkers(){
