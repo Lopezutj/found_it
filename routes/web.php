@@ -36,8 +36,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/workers',[vistaController::class,'workers'])->name('workers');
     Route::get('/registerworkers',[vistaController::class,'registerworkers'])->name('register_workers');
     Route::get('/editworkers',[vistaController::class,'editworkers'])->name('edit_workers');
-
-    
+  
     Route::get('/reports',[vistaController::class,'reports'])->name('reports');
 });
 
@@ -55,7 +54,8 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/SearchS',[DetalleInventarioController::class,'buscarSurtido'])->name('SearchS');
     Route::get('/SearchC',[DetalleInventarioController::class,'buscarconteos'])->name('SearchC');
     Route::get('/barcode/{numeroParte}', [BarcodeController::class, 'generadorCodigoBar'])->name('barcode'); //ruta para generar barcode
-    
+    Route::get('/Trabajadores',[AuthController::class, 'indexUsers'])->name('Trabajadores');
+
 });
 
 

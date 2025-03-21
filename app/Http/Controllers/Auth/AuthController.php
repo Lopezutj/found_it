@@ -19,11 +19,11 @@ class AuthController extends Controller
     {
         $users=User::all();
 
-        if(isEmpty($users)){
+        if(!isEmpty($users)){
             return Redirect()->back()->with('Error', 'No hay usuarios');
         }
 
-        return view('workesr.workers' , compact('users'));
+        return view('workers.workers' , compact('users'));
 
     }
 

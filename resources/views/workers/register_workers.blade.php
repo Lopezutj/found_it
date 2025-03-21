@@ -97,10 +97,6 @@
                           <input type="radio" name="status" value="active" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]" checked>
                           <span class="ml-2 text-gray-700">Activo</span>
                       </label>
-                      <label class="inline-flex items-center" title="El trabajador no podrá acceder al sistema">
-                          <input type="radio" name="status" value="inactive" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]">
-                          <span class="ml-2 text-gray-700">Inactivo</span>
-                      </label>
                   </div>
               </div>
           </div>
