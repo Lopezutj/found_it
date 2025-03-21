@@ -17,18 +17,18 @@
                       <div class="flex-1">
                           <form action="#" method="GET">
                               <div class="relative flex">
-                                  <input 
-                                      type="text" 
-                                      id="searchInput" 
+                                  <input
+                                      type="text"
+                                      id="searchInput"
                                       name="busqueda"
-                                      class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" 
+                                      class="w-full h-10 pl-10 pr-4 rounded-l-lg border border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                                       placeholder="Buscar por nombre o email..."
                                   >
-                                  <svg 
-                                      xmlns="http://www.w3.org/2000/svg" 
+                                  <svg
+                                      xmlns="http://www.w3.org/2000/svg"
                                       class="h-5 w-5 absolute left-3 top-2.5 text-[#2045c2]"
-                                      fill="none" 
-                                      viewBox="0 0 24 24" 
+                                      fill="none"
+                                      viewBox="0 0 24 24"
                                       stroke="currentColor"
                                   >
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -80,21 +80,41 @@
                       </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200">
-                      <!-- Ejemplo de fila (datos de muestra) -->
+
+                      @foreach ($users as $usuarios)
+
                       <tr class="hover:bg-gray-50">
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Juan Pérez</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">juan.perez@example.com</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$usuarios->name}}</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$usuarios->email}}</td>
                           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                  Sí
+                                @switch($usuarios->rol)
+                            @case('adm')
+                                Administrador
+                                @break
+                            @case('oper')
+                                Operador
+                                @break
+                            @default
+                                {{ $usuarios->rol }}
+                        @endswitch
                               </span>
                           </td>
                           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                               <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                  Activo
+                                @switch($usuarios->activo)
+                            @case('1')
+                                Activo
+                                @break
+                            @case('0')
+                                Inactivo
+                                @break
+                            @default
+                                {{ $usuarios->rol }}
+                        @endswitch
                               </span>
                           </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">01/01/2023</td>
+                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$usuarios->created_at}}</td>
                           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                               <a href="workers/edit/1" class="text-[#2045c2] hover:text-[#ff3333] transition-colors duration-150 inline-block">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: currentColor;">
@@ -108,65 +128,15 @@
                               </button>
                           </td>
                       </tr>
-                      <tr class="hover:bg-gray-50">
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">María López</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">maria.lopez@example.com</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                  No
-                              </span>
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                  Activo
-                              </span>
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/03/2023</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                              <a href="workers/edit/2" class="text-[#2045c2] hover:text-[#ff3333] transition-colors duration-150 inline-block">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: currentColor;">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                  </svg>
-                              </a>
-                              <button type="button" class="text-[#ff3333] hover:text-[#cc0000] transition-colors duration-150 inline-block" onclick="return confirm('¿Está seguro que desea eliminar este empleado?')">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                  </svg>
-                              </button>
-                          </td>
-                      </tr>
-                      <tr class="hover:bg-gray-50">
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carlos Rodríguez</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">carlos.rodriguez@example.com</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                  No
-                              </span>
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                  Inactivo
-                              </span>
-                          </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10/06/2023</td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                              <a href="workers/edit/3" class="text-[#2045c2] hover:text-[#ff3333] transition-colors duration-150 inline-block">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: currentColor;">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                  </svg>
-                              </a>
-                              <button type="button" class="text-[#ff3333] hover:text-[#cc0000] transition-colors duration-150 inline-block" onclick="return confirm('¿Está seguro que desea eliminar este empleado?')">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                  </svg>
-                              </button>
-                          </td>
-                      </tr>
-                  </tbody>
+                      @endforeach
               </table>
+            </tbody>
+            @if($users->isEmpty())
+            <p class="p-4 text-gray-500">No hay usuarios registrados.</p>
+            @endif
           </div>
-          
-          
+
+
 
   <!-- De aqui es el codigo para el fondo de pantalla img pantalla completa -->
   <div id="background-overlay" style="
@@ -187,7 +157,7 @@
       document.addEventListener('DOMContentLoaded', function() {
           const overlay = document.getElementById('background-overlay');
           document.body.prepend(overlay);
-          
+
           // fondo semitransparente
           const mainContainer = document.querySelector('.min-h-screen');
           if (mainContainer) {
