@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-3xl font-bold text-gray-900 mb-6">Dashboard</h1>
+
 
     <!-- Alertas Importantes -->
     <div class="mb-6 bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
