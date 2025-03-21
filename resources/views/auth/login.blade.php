@@ -61,22 +61,34 @@
                 </div>
             </div>
 
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+                    <strong class="font-bold">¡Error!</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
             <div class="p-8 bg-white rounded-b-lg shadow-lg">
                 <form action="{{route('login_user')}}" method="post" class="space-y-6"> {{-- Vista funcional --}}
                     @csrf
                     <h2 class="text-2xl font-semibold text-center text-blue-500 fade-in">Inicio de Sesión</h2>
-                    <input type="text" name="email" placeholder="Usuario" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 hover:shadow-xl hover:border-blue-400"/>
+                    <input type="text" name="email" placeholder="Usuario" value="{{old('email')}}" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 hover:shadow-xl hover:border-blue-400"/>
+                    @error('email')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                     <input type="password" name="password" placeholder="Contraseña" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 hover:shadow-xl hover:border-blue-400"/>
+                    @error('password')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
                     <button type="submit" value="Inciar_sesion" class="w-full bg-blue-500 text-white py-3 rounded-xl text-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 transform hover:scale-105 hover:shadow-2xl">Ingresar</button>
                 </form>
             </div>
         </div><!-- cierre de caja del login -->
-
-        @if (isset($mensaje))
-        <script>
-            alert('{{$mensaje}}');
-        </script>
-        @endif
     </main>
 
 </body>

@@ -29,7 +29,7 @@
             <div class="col-span-2 grid grid-cols-2 gap-4">
                 <!-- Rol del usuario - Muestra el tipo de acceso que tiene -->
                 <div>
-                    <p class="text-sm font-medium text-gray-500" title="Nivel de permisos en el sistema">Rol</p>
+                    <p class="text-sm font-medium text-gray-500" title="Nivel de permisos en el sistema">CARGO</p>
                     <p class="text-lg font-medium text-gray-900" title="Define las funciones a las que tienes acceso">
                         @switch(auth()->user()->rol)
                             @case('adm')
@@ -46,7 +46,7 @@
 
                 <!-- Estado de la cuenta - Activo/Inactivo con colores para diferenciar -->
                 <div>
-                    <p class="text-sm font-medium text-gray-500" title="Estado actual de tu cuenta">Estatus</p>
+                    <p class="text-sm font-medium text-gray-500" title="Estado actual de tu cuenta">ESTATUS</p>
                     <span class="px-3 py-1 rounded-full text-sm font-medium {{ auth()->user()->activo ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}" title="{{ auth()->user()->activo ? 'Tu cuenta está activa y puedes acceder al sistema' : 'Tu cuenta está inactiva, contacta al administrador' }}">
                         {{ auth()->user()->activo ? 'Activo' : 'Inactivo' }}
                     </span>
@@ -54,7 +54,7 @@
                 
                 <!-- Fecha de registro - Cuándo se creó la cuenta -->
                 <div class="col-span-2">
-                    <p class="text-sm font-medium text-gray-500" title="Fecha en que tu cuenta fue creada">Fecha de Registro</p>
+                    <p class="text-sm font-medium text-gray-500" title="Fecha en que tu cuenta fue creada">FECHA DE REGISTRO</p>
                     <p class="text-lg font-medium text-gray-900" title="Fecha y hora de creación de tu cuenta">{{ auth()->user()->created_at }}</p>
                 </div>
             </div>
