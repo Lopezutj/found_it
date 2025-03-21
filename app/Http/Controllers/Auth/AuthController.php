@@ -33,6 +33,8 @@ class AuthController extends Controller
         $credenciales =$request->validate([
             'email'=>'required|email',
             'password'=>'required|string|min:6',
+        ],[
+            'password.min'=>'La contraseña debe tener al menos 6 caracter.'
         ]);
 
         //intentar autenticar usuario
@@ -43,9 +45,9 @@ class AuthController extends Controller
         }
 
         //si falla redirigir con error
-        return back()->withErrors(['email'=>'Las credenciales no coinciden en nuestro registro'])
+        return redirect()->back()->withErrors(['email'=>'Error Credenciales Incorrectas'])
         ->onlyInput('email');
-    }
+    } 
 
     //Funcion crear Usuario
     public function create(Request $request){
