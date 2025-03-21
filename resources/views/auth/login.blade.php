@@ -73,7 +73,7 @@
             @if ($errors->any())
                 <div id="alerta-error" class="alerta fade-in">
                     <h2>¡Atención!</h2>
-                    <p>Por favor corrige los siguientes errores:</p>
+                    
                     <ul class="mt-2">
                         @foreach ($errors->all() as $error)
                             <li class="text-red-600">- {{ $error }}</li>
