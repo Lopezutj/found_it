@@ -70,7 +70,7 @@
 
             @switch(auth()->user()->rol)
                 @case('adm')
-                    @break
+
                     <!-- Reportes -->
                     <a href="{{route('reports')}}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-white hover:bg-white/10 transition-all duration-150 group">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,13 +79,6 @@
                         Reportes
                     </a>
 
-                @case('oper')
-                    @break
-            @endswitch
-
-
-            @switch(auth()->user()->rol)
-                @case('adm')
                     <!-- Trabajadores -->
                     <a href="{{route('Trabajadores')}}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-white text-foundit-blue hover:bg-opacity-90 transition-all duration-150 group">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
