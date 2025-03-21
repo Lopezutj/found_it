@@ -47,7 +47,7 @@ class AuthController extends Controller
         //si falla redirigir con error
         return redirect()->back()->withErrors(['email'=>'Error Credenciales Incorrectas'])
         ->onlyInput('email');
-    } 
+    }
 
     //Funcion crear Usuario
     public function create(Request $request){
@@ -84,4 +84,19 @@ class AuthController extends Controller
         return redirect('/')->with('mensaje','Sesion Cerrada Correctamente');
 
     }
+    public function deleteUser(Request $request, $id){
+        // Buscar al usuario por su ID
+        $user = User::find($id);
+
+        // Verificar si el usuario existe antes de intentar eliminarlo
+        if (!$user) {
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
+        }
+
+        // Eliminar el usuario
+        $user->delete();
+
+        return redirect()->route('workers')->with('mensaje','Usuario eliminado correctamente');
+    }
+
 }
