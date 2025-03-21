@@ -212,7 +212,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('{{ asset('img/Conteos.jpg') }}');
+        background-image: url('{{ asset('img/prueba.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
