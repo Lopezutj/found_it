@@ -101,15 +101,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" title="Pasillo {{$inventario->estante->pasillo}}, Columna {{$inventario->estante->columna}}, Fila {{$inventario->estante->fila}}">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                             <!-- Icono de reloj para historial -->
-                            <button 
-                                title="Ver historial de movimientos del material {{$inventario->material->nombre}}" 
-                                onclick="openHistoryModal('{{$inventario->material->codigo}}')" 
-                                class="text-[#2045c2] hover:text-[#1a3aa3] transition-colors duration-150"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </button>
+                           <button onclick="openHistoryModal('MAT001')" class="text-[#2045c2] hover:text-[#ff3333]" title="Ver historial de movimientos del material">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    
                             <!-- Icono de edición -->
                             <button 
                                 title="Editar información del material {{$inventario->material->nombre}}" 

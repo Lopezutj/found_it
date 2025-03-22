@@ -6,8 +6,7 @@
      <main class="flex-1 p-6">
         <!-- Encabezado de la página - Título y descripción -->
         <div class="mb-6">
-            <h1 class="text-2xl font-semibold text-[#2045c2]">PERFIL USUARIO</h1>
-            <p class="text-gray-600 mt-1">Información de tu cuenta</p>
+        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded" title="Formulario para modificar los detalles de un material existente">PERFIL USUARIO <p class="text-gray-600 mt-2 text-sm">Información de tu cuenta</p></h1>
         </div>
 
         <!-- Tarjeta principal - Contiene toda la info del perfil -->
@@ -61,4 +60,32 @@
         </div>
     </main>
 </div>
+
+<!-- Código para el fondo de pantalla img pantalla completa -->
+<div id="background-overlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('{{ asset('img/prod1.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -9999;
+    pointer-events: none;
+"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('background-overlay');
+        document.body.prepend(overlay);
+        
+        // fondo semitransparente
+        const mainContainer = document.querySelector('.min-h-screen');
+        if (mainContainer) {
+            mainContainer.style.backgroundColor = 'rgba(19, 18, 18, 0.4)';
+        }
+    });
+</script>
 @endsection

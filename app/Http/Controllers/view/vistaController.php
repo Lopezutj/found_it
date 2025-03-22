@@ -95,4 +95,8 @@ public function reports(){
     return view('reporte.reports');
 }
 
+
+public function edit_material_modal(){
+    return view('inventory.edit_material_modal');
+}
 }
