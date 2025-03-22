@@ -75,70 +75,67 @@
         </div>
 
         <!-- Materiales sin ubicación - Sección que muestra materiales pendientes de ubicar -->
-        <div class="mb-8">
-            <!-- Título de la sección con color rojo para destacar la atención requerida -->
-            <h2 class="text-lg font-semibold text-[#ff3333] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales sin ubicación</h2>
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
-                <div class="overflow-x-auto">
-                    <!-- Tabla de materiales sin ubicación -->
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <!-- Encabezados de la tabla -->
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código único del material">Código</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Nombre descriptivo del material">Material</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Clasificación del material">Categoría</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Cantidad disponible">Cantidad</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Ubicación física (pendiente de asignar)">Ubicación</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Opciones disponibles para este material">Acciones</th>
-                            </tr>
-                        </thead>
-                        <!-- Cuerpo de la tabla con datos dinámicos -->
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($materialsinUbicacion as  $material)
-                            
-                            <!-- Fila de material sin ubicación -->
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$material->codigo}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->nombre}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->categoria}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->unidad_medida}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                    <!-- Botón para ver historial -->
-                                    <form action="" class="inline">
-                                        @csrf
-                                        <button onclick="openHistoryModal('MAT002')" class="text-[#2045c2] hover:text-[#ff3333]" title="Ver historial de movimientos del material">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </button>
-                                    </form>
-                                    <!-- Botón para asignar ubicación -->
-                                    <form action="{{ route('Register_ubicacion', $material->id) }} " method="POST" class="inline">
-                                        @csrf
-                                        {{-- agregar ubicacion --}}
-                                        <button type="submit" class="text-[#2045c2] hover:text-[#ff3333]" title="Asignar ubicación física al material">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                            </svg>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+<div class="mb-8">
+    <!-- Título de la sección con color rojo para destacar la atención requerida -->
+    <h2 class="text-lg font-semibold text-[#ff3333] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales sin ubicación</h2>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="overflow-x-auto">
+            <!-- Tabla de materiales sin ubicación -->
+            <table class="min-w-full divide-y divide-gray-200">
+                <!-- Encabezados de la tabla -->
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código único del material">Código</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Nombre descriptivo del material">Material</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Clasificación del material">Categoría</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Cantidad disponible">Cantidad</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Ubicación física (pendiente de asignar)">Ubicación</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Opciones disponibles para este material">Acciones</th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla con datos dinámicos -->
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($materialsinUbicacion as $material)
+                    
+                    <!-- Fila de material sin ubicación -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$material->codigo}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->nombre}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->categoria}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->unidad_medida}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                            <!-- Botón para ver historial - CORREGIDO -->
+                            <button type="button" onclick="openHistoryModal('{{$material->codigo}}')" class="text-[#2045c2] hover:text-[#ff3333] inline-block" title="Ver historial de movimientos del material">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <!-- Botón para asignar ubicación -->
+                            <form action="{{ route('Register_ubicacion', $material->id) }}" method="POST" class="inline">
+                                @csrf
+                                {{-- agregar ubicacion --}}
+                                <button type="submit" class="text-[#2045c2] hover:text-[#ff3333]" title="Asignar ubicación física al material">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
 
-                            @endforeach
-                        </tbody>
-                    </table>
+                    @endforeach
+                </tbody>
+            </table>
 
-                    <!-- Mensaje cuando no hay materiales sin ubicación -->
-                    @if ($materialsinUbicacion->isEmpty())
-                    <p class="p-4 text-gray-500">No hay materiales sin ubicación.</p>
-                    @endif
+            <!-- Mensaje cuando no hay materiales sin ubicación -->
+            @if ($materialsinUbicacion->isEmpty())
+            <p class="p-4 text-gray-500">No hay materiales sin ubicación.</p>
+            @endif
 
-                </div>
-            </div>
         </div>
+    </div>
+</div>
 
         <!-- Materiales con ubicación - Sección principal que muestra el inventario ubicado -->
         <div>
@@ -203,6 +200,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Incluir el modal de movimientos -->
+        @include('layouts.movements_modal')
     </div>
 
     <!-- De aqui es el codigo para el fondo de pantalla img pantalla completa -->
@@ -212,7 +212,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('{{ asset('img/prueba.jpg') }}');
+        background-image: url('{{ asset('img/pexels.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -242,5 +242,10 @@
                 });
             });
         });
+
+        // Alias para mantener compatibilidad con el código anterior
+        function openHistoryModal(code) {
+            openMovementsModal(code);
+        }
     </script>
 @endsection

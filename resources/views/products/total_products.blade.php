@@ -1,11 +1,11 @@
+<!-- MATERIALES TOTALES -->
 @extends('layouts.app')
 
 @section('content')
 <div class="p-6">
 
     <div class="mb-6 flex justify-between items-center">
-        <h1 class="text-2xl font-semibold text-[#2045c2]">MATERIALES TOTALES</h1>
-       
+        <h1 class="text-2xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-sm" title="">MATERIALES TOTALES</h1>
     </div>
 
     <!-- Barra de búsqueda y filtros -->
@@ -61,7 +61,7 @@
 
     <!-- Sección: Materiales Caros -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales de Alto Valor:</h2> {{-- Alto valor --}}
+        <h2 class="text-xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-sm mb-4" title="">Materiales de Alto Valor:</h2>
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -132,7 +132,7 @@
 
     <!-- Sección: Materiales Críticos -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Materiales B. Inventario:</h2> {{-- Stock bajo --}}
+        <h2 class="text-xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-sm mb-4">Materiales B. Inventario:</h2> {{-- Stock bajo --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -203,7 +203,7 @@
 
     <!-- Sección: Ferretería -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Ferretería:</h2>
+        <h2 class="text-xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-sm mb-4">Ferretería:</h2>
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -215,7 +215,7 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Almacén</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ubicación</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
@@ -274,7 +274,7 @@
 
     <!-- Sección: Herramientas -->
     <div class="mb-8">
-        <h2 class="text-xl font-semibold text-[#2045c2] mb-4 pl-2 border-l-4 border-[#2045c2]">Herramientas:</h2>
+        <h2 class="text-xl font-semibold text-[#2045c2] inline-block bg-white bg-opacity-80 px-4 py-2 rounded-lg shadow-sm mb-4">Herramientas:</h2>
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -347,10 +347,47 @@
 <!-- Incluir el modal de movimientos -->
 @include('layouts.movements_modal')
 
+<!-- De aqui es el codigo para el fondo de pantalla img pantalla completa -->
+<div id="background-overlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('{{ asset('img/totale.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -9999;
+    pointer-events: none;
+"></div>
+
 <script>
     // Alias para mantener compatibilidad con el código anterior
     function openHistoryModal(code) {
         openMovementsModal(code);
     }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('background-overlay');
+        document.body.prepend(overlay);
+        
+        // fondo semitransparente
+        const mainContainer = document.querySelector('.min-h-screen');
+        if (mainContainer) {
+            mainContainer.style.backgroundColor = 'rgba(19, 18, 18, 0.4)';
+        }
+        
+        // Añade efecto de hover a las filas de las tablas
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.classList.add('bg-gray-50');
+            });
+            row.addEventListener('mouseleave', function() {
+                this.classList.remove('bg-gray-50');
+            });
+        });
+    });
 </script>
 @endsection

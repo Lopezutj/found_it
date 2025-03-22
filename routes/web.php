@@ -40,6 +40,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/editworkers',[vistaController::class,'editworkers'])->name('edit_workers');
 
     Route::get('/reports',[vistaController::class,'reports'])->name('reports');
+    Route::get('/edit_material_modal',[vistaController::class,'edit_material_modal'])->name('edit_material_modal');
 });
 
 //Controladores
