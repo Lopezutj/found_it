@@ -122,7 +122,7 @@
                 </tbody>
             </table>
             @if ($detalleInventario->isEmpty())
-            <p class="p-4 text-gray-500" title="No se encontraron materiales que coincidan con los criterios de búsqueda">No se encontraron resultados.</p>
+            <p class="p-4 text-gray-500" title="No se encontraron materiales que coincidan con los criterios de búsqueda">NO SE ENCONTRARON RESULTADOS.</p>
             @endif
         </div>
     </div>
