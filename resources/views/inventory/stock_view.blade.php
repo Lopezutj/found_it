@@ -77,7 +77,7 @@
         <!-- Materiales sin ubicación - Sección que muestra materiales pendientes de ubicar -->
 <div class="mb-8">
     <!-- Título de la sección con color rojo para destacar la atención requerida -->
-    <h2 class="text-lg font-semibold text-[#ff3333] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales sin ubicación</h2>
+    <h2 class="text-lg font-semibold text-[#ff3333] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales Sin Ubicación</h2>
     <div class="bg-white rounded-lg shadow-sm border border-gray-200">
         <div class="overflow-x-auto">
             <!-- Tabla de materiales sin ubicación -->
@@ -130,7 +130,7 @@
 
             <!-- Mensaje cuando no hay materiales sin ubicación -->
             @if ($materialsinUbicacion->isEmpty())
-            <p class="p-4 text-gray-500">No hay materiales sin ubicación.</p>
+            <p class="p-4 text-gray-500">NO HAY MATERIALES SIN UBICACION.</p>
             @endif
 
         </div>
@@ -140,7 +140,7 @@
         <!-- Materiales con ubicación - Sección principal que muestra el inventario ubicado -->
         <div>
             <!-- Título de la sección con color azul corporativo -->
-            <h2 class="text-lg font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales con ubicación</h2>
+            <h2 class="text-lg font-semibold text-[#2045c2] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales Con Ubicación</h2>
             <div class="bg-white rounded-lg shadow-sm border border-gray-200">
                 <div class="overflow-x-auto">
                     <!-- Tabla de materiales con ubicación -->
@@ -195,7 +195,7 @@
                     </table>
                     <!-- Mensaje cuando no hay inventario -->
                     @if ($detalleInventario->isEmpty())
-                    <p class="p-4 text-gray-500">No hay Inventario.</p>
+                    <p class="p-4 text-gray-500">NO HAY INVENTARIO PARA MOSTRAR.</p>
                     @endif
                 </div>
             </div>

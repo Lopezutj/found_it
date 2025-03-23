@@ -78,16 +78,19 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    
+                    @foreach ($inventarioBajo as $inventario )
+                    
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">
                             
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MAT007</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">HP-09-LOL</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Electrónica</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">9000</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">JW2</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">P2-B-2</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->unidad_medida}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->estante->almacen}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" title="Pasillo {{$inventario->estante->pasillo}}, Columna {{$inventario->estante->columna}}, Fila {{$inventario->estante->fila}}">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <button 
                                 type="button" 
@@ -100,9 +103,14 @@
                             </button>
                         </td>
                     </tr>
+                    @endforeach
                     <!-- Más filas aquí -->
                 </tbody>
             </table>
+            <!-- Mensaje cuando no hay inventario -->
+            @if ($inventarioBajo->isEmpty())
+                <p class="p-4 text-gray-500">NO HAY BAJOS INVENTARIOS.</p>
+            @endif
         </div>
     </div>
 </div>

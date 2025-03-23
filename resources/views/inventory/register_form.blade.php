@@ -54,7 +54,7 @@
 @endif
 
 <!-- Notificación de éxito flotante MÁS CENTRADA -->
-@if (session('error'))
+@if (session('mensaje'))
 <div id="successAlert" class="fixed inset-0 flex items-center justify-center z-50">
     <!-- Contenedor de la alerta más centrado -->
     <div class="bg-white rounded-lg shadow-2xl border-4 border-green-500 p-6 max-w-md w-full mx-auto relative z-10 success-pulse transform translate-y-0">
@@ -71,7 +71,7 @@
         <h3 class="text-xl font-bold text-green-700 text-center mb-4">¡Operación Exitosa!</h3>
         
         <!-- Mensaje de éxito -->
-        <p class="text-center text-gray-800 mb-4">{{ session('error') }}</p>
+        <p class="text-center text-gray-800 mb-4">{{ session('mensaje') }}</p>
         
         <!-- Botón de cerrar -->
         <div class="flex justify-center">

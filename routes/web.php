@@ -7,7 +7,6 @@ use App\Http\Controllers\Inventory\EstanteController;
 use App\Http\Controllers\Inventory\MaterialController;
 use App\Http\Controllers\view\vistaController;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Stmt\Return_;
 
 //ruta inicio sin middleware
 Route::get('/',[vistaController::class,'__invoke'])->name('login');
@@ -31,7 +30,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/userprofile',[vistaController::class,'userProfile'])->name('user.profile');//vista user nueva agregada
     Route::get('/Inventory_edit',[vistaController::class,'edit_inventario'])->name('Inventory_edit');
     //vistas modulo productos
-    Route::get('/criticalProducts',[vistaController::class,'criticalProducts'])->name('critical_Products');
+    //Route::get('/criticalProducts',[vistaController::class,'criticalProducts'])->name('critical_Products');
     Route::get('/totalProducts',[vistaController::class,'totalProducts'])->name('total_Products');
     Route::get('/expensiveproducts',[vistaController::class,'expensiveproducts'])->name('expensive_products');
     //Vistas de modulo workers
@@ -58,6 +57,7 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/SearchC',[DetalleInventarioController::class,'buscarconteos'])->name('SearchC');
     Route::get('/barcode/{numeroParte}', [BarcodeController::class, 'generadorCodigoBar'])->name('barcode'); //ruta para generar barcode
     Route::get('/Trabajadores',[AuthController::class, 'indexUsers'])->name('Trabajadores');
+    Route::get('/CriticalProducts',[DetalleInventarioController::class,'filtrarBajoinventario'])->name('CriticalProducts');
 
 });
 

@@ -158,4 +158,12 @@ class DetalleInventarioController extends Controller
         return view('inventory.part_with_material',compact('detalleInventario'));
     }
 
+    public function filtrarBajoinventario(){
+        $inventarioBajo = DetalleInventario::with(['material','estante','user'])//relacionar tablas para la consulta
+        ->where('cantidad','<',1000)//condicion
+        ->get();
+
+        return view('products.critical_products',compact('inventarioBajo'));
+    }
+
 }

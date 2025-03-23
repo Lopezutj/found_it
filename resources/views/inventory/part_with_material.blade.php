@@ -160,6 +160,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                @if ($detalleInventario->isEmpty())
+                    <p class="p-4 text-gray-500">NO HAY INVENTARIO PARA MOSTRAR.</p>
+                @endif
                 
                 <!-- Botón flotante para surtir materiales seleccionados -->
                 <button type="submit"
