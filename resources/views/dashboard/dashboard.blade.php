@@ -158,6 +158,10 @@
                 </div>
             </div>
         </div>
+
+        <div>
+            <iframe src="http://192.168.1.200/" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
     </div>
 </div>
 

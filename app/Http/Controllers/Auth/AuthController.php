@@ -45,7 +45,7 @@ class AuthController extends Controller
         }
 
         //si falla redirigir con error
-        return redirect()->back()->withErrors(['email'=>'Error Credenciales Incorrectas'])
+        return redirect()->back()->withErrors(['email'=>'Credenciales Incorrectas'])
         ->onlyInput('email');
     }
 
