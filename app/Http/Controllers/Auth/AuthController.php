@@ -27,6 +27,12 @@ class AuthController extends Controller
 
     }
 
+    public function indexUser($id){
+        $usuario=User::findOrFail($id);
+
+        return view('workers.edit_workers',compact('usuario'));
+    }
+
     //Funcion autentificacion
     public function authenticate(Request $request){
         //validar credenciales
@@ -72,6 +78,38 @@ class AuthController extends Controller
 
             return redirect()->route('workers')->with('mensaje','Usuario Creado Con Exito');
 
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'name'=>'required|string',
+            'email' => 'required|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8|confirmed',
+            'rol' => 'required|in:adm,oper',
+            'activo' => 'required|in:1,0',
+
+        ]); 
+
+        //buscar usuario
+        $usuario=User::findOrFail($id);
+
+        //actualizar datos
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->rol = $request->rol;
+        $usuario->activo = $request->activo;
+
+
+        //si ingreso new password encryp
+        if( $request->filled('password')){
+            $usuario->password = Hash::make($request->password);
+        }
+
+        //update 
+        $usuario->save();
+
+        // Redirigir con mensaje de éxito
+    return redirect()->route('workers')->with('success', 'Usuario actualizado correctamente.');
     }
 
     //cerrar sesion
