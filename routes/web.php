@@ -58,11 +58,13 @@ Route::middleware(['Middleware','auth'])->group(function(){
     Route::get('/barcode/{numeroParte}', [BarcodeController::class, 'generadorCodigoBar'])->name('barcode'); //ruta para generar barcode
     Route::get('/Trabajadores',[AuthController::class, 'indexUsers'])->name('Trabajadores');
     Route::get('/CriticalProducts',[DetalleInventarioController::class,'filtrarBajoinventario'])->name('CriticalProducts');
-
+    
 });
 
 
 Route::middleware(['Middleware','auth'])->group(function(){
     Route::post('/logout',[AuthController::class,'logout'])->name('logout_user');//cerrar sesion usuario
+    Route::get('/editUser/{id}',[AuthController::class,'indexUser'])->name('editUser');
+    Route::put('/updateUser/{id}',[AuthController::class,'update'])->name('updateUser');
 });
 

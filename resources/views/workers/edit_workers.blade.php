@@ -7,7 +7,8 @@
 <div class="min-h-screen flex items-center justify-center p-6">
   <!-- Formulario de Edición de Empleado -->
   <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg border border-gray-200 relative z-10">
-      <form action="#" method="post" class="p-8">
+
+      <form action="{{ route('updateUser',$usuario->id)}}" method="post" class="p-8">
           @csrf
           @method('PUT')
           <div class="space-y-6">
@@ -25,7 +26,7 @@
                   <input 
                       type="text" 
                       name="name"
-                      value="Juan Pérez"
+                      value="{{$usuario->name}}"
                       placeholder="Ingrese el nombre completo"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
@@ -41,7 +42,7 @@
                   <input 
                       type="email" 
                       name="email"
-                      value="juan.perez@example.com"
+                      value="{{$usuario->email}}"
                       placeholder="Ingrese el correo electrónico"
                       class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]"
                       required
@@ -82,9 +83,9 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">
                       Permisos de Usuario
                   </label>
-                  <select name="is_admin" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Modifique el nivel de permisos del trabajador">
-                      <option value="0" title="Acceso limitado a funciones operativas">Trabajador</option>
-                      <option value="1" selected title="Acceso completo a todas las funciones del sistema">Administrador</option>
+                  <select name="rol" class="w-full h-12 text-lg rounded-lg border-gray-300 focus:border-[#2045c2] focus:ring-[#2045c2]" title="Modifique el nivel de permisos del trabajador">
+                      <option value="adm" {{$usuario->rol == 'adm' ? 'selected' : '' }} title="Acceso limitado a funciones operativas">Administrador</option>
+                      <option value="oper" {{$usuario->rol == 'oper' ? 'selected' : '' }} selected title="Acceso completo a todas las funciones del sistema">Operador</option>
                   </select>
               </div>
 
@@ -95,11 +96,13 @@
                   </label>
                   <div class="flex items-center space-x-4">
                       <label class="inline-flex items-center" title="El trabajador podrá acceder al sistema">
-                          <input type="radio" name="status" value="active" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]" checked>
+                          <input type="radio" name="activo" value="1" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]"
+                          {{$usuario->activo == '1' ? 'checked' : '' }}>
                           <span class="ml-2 text-gray-700">Activo</span>
                       </label>
                       <label class="inline-flex items-center" title="El trabajador no podrá acceder al sistema">
-                          <input type="radio" name="status" value="inactive" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]">
+                          <input type="radio" name="activo" value="0" class="h-5 w-5 text-[#2045c2] focus:ring-[#2045c2]"
+                          {{$usuario->activo == '0' ? 'checked' : '' }}>
                           <span class="ml-2 text-gray-700">Inactivo</span>
                       </label>
                   </div>
@@ -112,7 +115,7 @@
                   </label>
                   <input 
                       type="text" 
-                      value="01/01/2023"
+                      value="{{$usuario->created_at->format('d/m/y')}}"
                       class="w-full h-12 text-lg rounded-lg bg-gray-50 border-gray-300 text-gray-500"
                       readonly
                       title="Fecha en que el trabajador fue registrado en el sistema (no modificable)"
@@ -130,8 +133,7 @@
                   Cancelar
               </a>
               <button 
-                  type="button"
-                  onclick="window.location.href='../../workers'"
+                  type="submit"
                   class="px-6 py-3 text-lg font-medium text-white bg-[#2045c2] rounded-lg hover:bg-[#1a3aa3] shadow-md"
                   title="Guardar los cambios realizados al trabajador"
               >
