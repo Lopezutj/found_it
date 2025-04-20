@@ -68,65 +68,69 @@
             </div>
         </div>
     </div>
-    <!-- Tabla de Materiales -->
+        <!-- Materiales sin ubicación - Sección que muestra materiales pendientes de ubicar -->
+<div class="mb-8">
+    <!-- Título de la sección con color rojo para destacar la atención requerida -->
+    <h2 class="text-lg font-semibold text-[#ff3333] inline-block bg-white bg-opacity-40 px-4 py-2 rounded mb-4">Materiales Sin Ubicación</h2>
     <div class="bg-white rounded-lg shadow-sm border border-gray-200">
-        <!-- El contenido de la tabla -->
         <div class="overflow-x-auto">
+            <!-- Tabla de materiales sin ubicación -->
             <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-[#e6ebfa]">
+                <!-- Encabezados de la tabla -->
+                <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código único que identifica el material">Código</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código de barras para escaneo del material">Código de barras</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Código único del material">Código</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Nombre descriptivo del material">Material</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Clasificación del material según su tipo">Categoría</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Ubicación física del material en el almacén (pasillo-columna-fila)">Ubicación</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Clasificación del material">Categoría</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Cantidad disponible">Cantidad</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Ubicación física (pendiente de asignar)">Ubicación</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" title="Opciones disponibles para este material">Acciones</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con datos dinámicos -->
                 <tbody class="bg-white divide-y divide-gray-200">
-                    <!-- Ejemplo de fila -->
-                    @foreach ($detalleInventario as $inventario)
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$inventario->material->codigo}}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            <img 
-                                src="{{ route('barcode', ['numeroParte' => $inventario->material->codigo]) }}" 
-                                alt="Código de Barras" 
-                                style="width: 150px; height: 50px;"
-                                title="Código de barras para {{$inventario->material->nombre}}"
-                            >
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->nombre}}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$inventario->material->categoria}}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" title="Pasillo {{$inventario->estante->pasillo}}, Columna {{$inventario->estante->columna}}, Fila {{$inventario->estante->fila}}">{{$inventario->estante->pasillo}}-{{$inventario->estante->columna}}-{{$inventario->estante->fila}}</td>
+                    @foreach ($materialsinUbicacion as $material)
+                    
+                    <!-- Fila de material sin ubicación -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$material->codigo}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->nombre}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->categoria}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$material->unidad_medida}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">UBICACION DE DASO</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                            <!-- Icono de reloj para historial -->
-                           <button onclick="openHistoryModal('MAT001')" class="text-[#2045c2] hover:text-[#ff3333]" title="Ver historial de movimientos del material">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                    
-                            <!-- Icono de edición -->
-                            <button 
-                                title="Editar información del material {{$inventario->material->nombre}}" 
-                                onclick="location.assign('{{route('Inventory_edit')}}')" 
-                                class="text-[#2045c2] hover:text-[#ff3333] transition-colors duration-150"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: currentColor;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            <!-- Botón para ver historial - CORREGIDO -->
+                            <button type="button" onclick="openHistoryModal('{{$material->codigo}}')" class="text-[#2045c2] hover:text-[#ff3333] inline-block" title="Ver historial de movimientos del material">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </button>
+                            <!-- Botón para asignar ubicación -->
+                            <form action="{{ route('Register_ubicacion', $material->id) }}" method="POST" class="inline">
+                                @csrf
+                                {{-- agregar ubicacion --}}
+                                <button type="submit" class="text-[#2045c2] hover:text-[#ff3333]" title="Asignar ubicación física al material">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
+
                     @endforeach
                 </tbody>
             </table>
-            @if ($detalleInventario->isEmpty())
-            <p class="p-4 text-gray-500" title="No se encontraron materiales que coincidan con los criterios de búsqueda">NO SE ENCONTRARON RESULTADOS.</p>
+
+            <!-- Mensaje cuando no hay materiales sin ubicación -->
+            @if ($materialsinUbicacion->isEmpty())
+            <p class="p-4 text-gray-500">NO HAY MATERIALES SIN UBICACION.</p>
             @endif
+
         </div>
     </div>
 </div>
+
 
 <!-- Modal de Edición -->
 <div id="editModal" class="hidden fix inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">

@@ -16,46 +16,16 @@ class DetalleInventarioController extends Controller
 {
     //
     // Mostrar todos los registros de inventario en Gestion de envarques
-    public function indexDetalle()
+    public function     indexDetalle()
     {
         $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
-        return view('inventory.gestion_embarques',compact('detalleInventario'));
+        return view('inventory.stock_view',compact('detalleInventario'));
     }
 
     public function indexDetalleSurtido()
     {
         $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
         return view('inventory.part_with_material',compact('detalleInventario'));
-    }
-
-    // Mostrar el formulario para editar un detalle de inventario
-    public function edit($id)
-    {
-        $detalle=DetalleInventario::findOrFail($id);
-        $materiles= Material::all();//obtner todos los materiales
-        $estantes= Estante::all();//obtener todos los estantes
-
-        return view('',compact('detalle','materiales','estantes'));
-
-    }
-
-    // Actualizar un detalle de inventario
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'material_id'=>'required|exists:materiales,id',
-            'estante_id'=>'required|exists:estantes,id',
-            'cantidad'=>'required|integer',
-        ]);
-
-        $detalle=DetalleInventario::findOrFail($id);
-        $detalle->material_id=$request->material_id;
-        $detalle->estante_id=$request->estante_id;
-        $detalle->cantidad=$request->cantidad;
-        $detalle->observaciones=$request->observaciones;
-        $detalle->save();
-        
-        return redirect()->route('')->with('mensaje','');
     }
 
     public function mostrarMaterialArray(Request $request){

@@ -19,7 +19,7 @@ class MaterialController extends Controller
         //dd($materialsinUbicacion); test
         $detalleInventario=DetalleInventario::with(['material','estante','user'])->get();//relacionar las tablas para consultar
         
-        return view('Inventory.stock_view',compact('materialsinUbicacion','detalleInventario'));
+        return view('inventory.gestion_embarques',compact('materialsinUbicacion','detalleInventario'));
     }
 
     //registrar Material ala tabla materiales
@@ -60,7 +60,7 @@ class MaterialController extends Controller
         $material=Material::findOrFail($id);
         return view('inventory.register_location',compact('material'));
     }
-
+    
     //actualizar material
     public function update(Request $request,$id){
 
