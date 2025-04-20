@@ -32,10 +32,10 @@
                         <a href="{{route('StockSurtido')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
                             Surtido
                         </a>
-                        <a href="{{route('Inventorystock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
+                        <a href="{{route('Stock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
                             Almacen
                         </a>
-                        <a href="{{route('Stock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
+                        <a href="{{route('Inventorystock')}}" class="flex items-center px-11 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-150">
                             Recibo/Entrada
                         </a>
                     </div>
